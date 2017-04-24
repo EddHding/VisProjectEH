@@ -1,0 +1,10 @@
+C:\Users\Eddy\Documents\Prep\Computing\Lower sixth\VisProjectEH\Accounting.Model\bin\Debug\Accounting.Model.dll.config
+C:\Users\Eddy\Documents\Prep\Computing\Lower sixth\VisProjectEH\Accounting.Model\bin\Debug\Accounting.Model.dll
+C:\Users\Eddy\Documents\Prep\Computing\Lower sixth\VisProjectEH\Accounting.Model\bin\Debug\Accounting.Model.pdb
+C:\Users\Eddy\Documents\Prep\Computing\Lower sixth\VisProjectEH\Accounting.Model\bin\Debug\NakedObjects.Attributes.dll
+C:\Users\Eddy\Documents\Prep\Computing\Lower sixth\VisProjectEH\Accounting.Model\bin\Debug\NakedObjects.Helpers.dll
+C:\Users\Eddy\Documents\Prep\Computing\Lower sixth\VisProjectEH\Accounting.Model\bin\Debug\NakedObjects.PMResources.dll
+C:\Users\Eddy\Documents\Prep\Computing\Lower sixth\VisProjectEH\Accounting.Model\bin\Debug\NakedObjects.Types.dll
+C:\Users\Eddy\Documents\Prep\Computing\Lower sixth\VisProjectEH\Accounting.Model\obj\Debug\Accounting.Model.csprojResolveAssemblyReference.cache
+C:\Users\Eddy\Documents\Prep\Computing\Lower sixth\VisProjectEH\Accounting.Model\obj\Debug\Accounting.Model.dll
+C:\Users\Eddy\Documents\Prep\Computing\Lower sixth\VisProjectEH\Accounting.Model\obj\Debug\Accounting.Model.pdb

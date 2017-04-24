@@ -1,0 +1,14 @@
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\Template.DataBase.dll.config
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\Template.DataBase.dll
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\Template.DataBase.pdb
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\EntityFramework.dll
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\EntityFramework.SqlServer.dll
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\Template.Model.dll
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\NakedObjects.Attributes.dll
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\NakedObjects.Types.dll
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\Template.Model.pdb
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\EntityFramework.xml
+C:\NakedObjectsFramework\Template\Template.DataBase\bin\Debug\EntityFramework.SqlServer.xml
+C:\NakedObjectsFramework\Template\Template.DataBase\obj\Debug\Template.DataBase.csprojResolveAssemblyReference.cache
+C:\NakedObjectsFramework\Template\Template.DataBase\obj\Debug\Template.DataBase.dll
+C:\NakedObjectsFramework\Template\Template.DataBase\obj\Debug\Template.DataBase.pdb

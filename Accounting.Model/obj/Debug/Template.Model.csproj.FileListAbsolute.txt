@@ -1,0 +1,10 @@
+C:\NakedObjectsFramework\Template\Template.Model\bin\Debug\Template.Model.dll.config
+C:\NakedObjectsFramework\Template\Template.Model\bin\Debug\Template.Model.dll
+C:\NakedObjectsFramework\Template\Template.Model\bin\Debug\Template.Model.pdb
+C:\NakedObjectsFramework\Template\Template.Model\bin\Debug\NakedObjects.Attributes.dll
+C:\NakedObjectsFramework\Template\Template.Model\bin\Debug\NakedObjects.Helpers.dll
+C:\NakedObjectsFramework\Template\Template.Model\bin\Debug\NakedObjects.PMResources.dll
+C:\NakedObjectsFramework\Template\Template.Model\bin\Debug\NakedObjects.Types.dll
+C:\NakedObjectsFramework\Template\Template.Model\obj\Debug\Template.Model.csprojResolveAssemblyReference.cache
+C:\NakedObjectsFramework\Template\Template.Model\obj\Debug\Template.Model.dll
+C:\NakedObjectsFramework\Template\Template.Model\obj\Debug\Template.Model.pdb
