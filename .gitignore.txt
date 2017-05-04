@@ -1,0 +1,5 @@
+**/bin
+**/obj
+**.suo
+**/packages
+**/nakedobjects_log*.*
