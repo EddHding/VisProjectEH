@@ -1,0 +1,10 @@
+C:\VisProjectEH\Accounting.Model\bin\Debug\Accounting.Model.dll.config
+C:\VisProjectEH\Accounting.Model\bin\Debug\Accounting.Model.dll
+C:\VisProjectEH\Accounting.Model\bin\Debug\Accounting.Model.pdb
+C:\VisProjectEH\Accounting.Model\bin\Debug\NakedObjects.Attributes.dll
+C:\VisProjectEH\Accounting.Model\bin\Debug\NakedObjects.Helpers.dll
+C:\VisProjectEH\Accounting.Model\bin\Debug\NakedObjects.PMResources.dll
+C:\VisProjectEH\Accounting.Model\bin\Debug\NakedObjects.Types.dll
+C:\VisProjectEH\Accounting.Model\obj\Debug\Accounting.Model.csprojResolveAssemblyReference.cache
+C:\VisProjectEH\Accounting.Model\obj\Debug\Accounting.Model.dll
+C:\VisProjectEH\Accounting.Model\obj\Debug\Accounting.Model.pdb
