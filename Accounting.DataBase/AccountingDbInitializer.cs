@@ -11,15 +11,15 @@ namespace Accounting.DataBase
         protected override void Seed(AccountingDbContext context)
         {
             this.Context = context;
-            AddNewStudent("Alie Algol");
-            AddNewStudent("Forrest Fortran");
-            AddNewStudent("James Java");
+            AddNewAccount("Stock of goods");
+            AddNewAccount("Building");
+            AddNewAccount("Cash at Bank");
         }
 
-        private void AddNewStudent(string name)
+        private void AddNewAccount(string name)
         {
-            var st = new Stock() { ItemName = name };
-            Context.Students.Add(st);
+            var ac = new Account() { AccountName = name };
+            Context.Accounts.Add(ac);
         }
     }
 }

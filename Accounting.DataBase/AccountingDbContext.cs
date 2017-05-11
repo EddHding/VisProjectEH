@@ -10,7 +10,8 @@ namespace Accounting.DataBase
             Database.SetInitializer(new AccountingDbInitializer());
         }
 
-        public DbSet<Stock> Students { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
     }
 
 }

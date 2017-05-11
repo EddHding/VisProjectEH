@@ -13,25 +13,33 @@ namespace Accounting.Model
         //An implementation of this interface is injected automatically by the framework
         public IDomainObjectContainer Container { set; protected get; }
         #endregion
-        public Stock CreateNewStockItem()
-        {
-            //'Transient' means 'unsaved' -  returned to the user
-            //for fields to be filled-in and the object saved.
-            return Container.NewTransientInstance<Stock>();
-        }
 
-        public IQueryable<Stock> AllStock()
+        public IQueryable<Account> AllAccounts()
         {
             //The 'Container' masks all the complexities of 
             //dealing with the database directly.
-            return Container.Instances<Stock>();
+            return Container.Instances<Account>();
         }
 
-        public IQueryable<Stock> FindStockByName(string name)
+        public IQueryable<Transaction> AllTransactions()
+        {
+            return Container.Instances<Transaction>();
+        }
+
+        public IQueryable<Account> FindAccountByName(string name)
         {
             //Filters students to find a match
-            return AllStock().Where(c => c.ItemName.ToUpper().Contains(name.ToUpper()));
+            return AllAccounts().Where(c => c.AccountName.ToUpper().Contains(name.ToUpper()));
         }
+
+        public Transaction CreateNewTransaction()
+        {
+            Transaction obj = Container.NewTransientInstance<Transaction>();
+            //set up any parameters
+            //Container.Persist(ref obj);
+            return obj;
+        }
+
     }
 
 }
