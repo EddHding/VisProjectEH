@@ -17,7 +17,7 @@ namespace Accounting.Model
         public virtual string AccountName { get; set; }
 
         #region DebitTransactions (collection)
-        [NotPersisted, NotMapped]
+        [NotPersisted, NotMapped, TableView(false, nameof(Transaction.Name), nameof(Transaction.Date), nameof(Transaction.Amount), nameof(Transaction.CreditAccount))]
         public virtual ICollection<Transaction> DebitTransactions
         {
             get
@@ -27,9 +27,9 @@ namespace Accounting.Model
             }
         }
         #endregion
-
+       
         #region CreditTransactions (collection)
-        [NotPersisted, NotMapped]
+        [NotPersisted, NotMapped, TableView(false, nameof(Transaction.Name), nameof(Transaction.Date), nameof(Transaction.Amount), nameof(Transaction.DebitAccount))]
         public virtual ICollection<Transaction> CreditTransactions
         {
             get
@@ -40,10 +40,5 @@ namespace Accounting.Model
         }
         #endregion
 
-
-        public Account()
-        {
-
-        }
     }
 }
