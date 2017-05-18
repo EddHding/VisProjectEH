@@ -28,6 +28,5 @@ C:\VisProjectEH\Accounting.Client\bin\Microsoft.AI.Web.xml
 C:\VisProjectEH\Accounting.Client\bin\Microsoft.AI.WindowsServer.xml
 C:\VisProjectEH\Accounting.Client\bin\Microsoft.ApplicationInsights.xml
 C:\VisProjectEH\Accounting.Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\VisProjectEH\Accounting.Client\obj\Debug\Accounting.Client.csprojResolveAssemblyReference.cache
 C:\VisProjectEH\Accounting.Client\obj\Debug\Accounting.Client.dll
 C:\VisProjectEH\Accounting.Client\obj\Debug\Accounting.Client.pdb
