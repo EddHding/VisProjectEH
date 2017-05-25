@@ -16,7 +16,10 @@ namespace Accounting.DataBase
             var bld = AddNewAccount("Building");
             var cab = AddNewAccount("Cash at Bank");
             Context.SaveChanges();
-            AddNewTransaction("Sale to customer", sog, cab, new DateTime(2017, 5, 25), 108.45m);
+            AddNewTransaction("Sale to customer", sog, cab, new DateTime(2017, 5, 17), 108.45m);
+            AddNewTransaction("Sale to customer", sog, cab, new DateTime(2017, 5, 25), 34.99m);
+            AddNewTransaction("Stock refill", cab, sog, new DateTime(2017, 5, 18), 56.00m);
+            AddNewTransaction("Purchase of stock", cab, sog, new DateTime(2017, 4, 01), 210.00m);
 
         }
 
