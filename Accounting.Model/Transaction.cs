@@ -20,7 +20,7 @@ namespace Accounting.Model
         public string Title()
         {
             var t = Container.NewTitleBuilder();
-            t.Append(Name).Append(Date);
+            t.Append(Name).Append(Date, "d", null);
             return t.ToString();
         }
 
