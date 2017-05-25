@@ -30,6 +30,9 @@ namespace Accounting.Model
         [MemberOrder (1)]
         public virtual string Name { get; set; }
 
+        [NakedObjectsIgnore]
+        public virtual int? DebitAccountId { get; set; }
+
         [MemberOrder(4)]
         public virtual Account DebitAccount { get; set; }
         [PageSize(10)]
@@ -37,6 +40,9 @@ namespace Accounting.Model
         {
             return AccountingService.FindAccountByName(matching);
         }
+
+        [NakedObjectsIgnore]
+        public virtual int? CreditAccountId { get; set; }
 
         [MemberOrder(5)]
         public virtual Account CreditAccount { get; set; }
@@ -47,7 +53,7 @@ namespace Accounting.Model
         }
 
         [MemberOrder(2)]
-        public virtual DateTime Date { get; set;}
+        public virtual DateTime Date { get; set; }
         [MemberOrder (3)]
         public virtual Decimal Amount { get; set; }
 
