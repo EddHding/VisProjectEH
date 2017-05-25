@@ -23,7 +23,7 @@ namespace Accounting.Model
 
         public IQueryable<Transaction> AllTransactions()
         {
-            return Container.Instances<Transaction>();
+            return Container.Instances<Transaction>().OrderByDescending(t => t.Date);
         }
 
         public IQueryable<Account> FindAccountByName(string name)
