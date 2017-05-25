@@ -16,7 +16,7 @@ namespace Accounting.DataBase
             var bld = AddNewAccount("Building");
             var cab = AddNewAccount("Cash at Bank");
             Context.SaveChanges();
-            AddNewTransaction("Sale to customer", sog.Id, cab.Id, new DateTime(2017, 5, 25), 108.45m);
+            AddNewTransaction("Sale to customer", sog, cab, new DateTime(2017, 5, 25), 108.45m);
 
         }
 
@@ -27,9 +27,9 @@ namespace Accounting.DataBase
             return ac;
         }
 
-        private Transaction AddNewTransaction(string name, int debitAccountId, int creditAccountId, DateTime date, decimal amount)
+        private Transaction AddNewTransaction(string name, Account dAccount, Account cAccount, DateTime date, decimal amount)
         {
-            var tr = new Transaction() { Name = name, DebitAccountId = debitAccountId, CreditAccountId = creditAccountId, Date = date, Amount = amount};
+            var tr = new Transaction() { Name = name, DebitAccount = dAccount, CreditAccount = cAccount, Date = date, Amount = amount};
             Context.Transactions.Add(tr);
             return tr;
         }
