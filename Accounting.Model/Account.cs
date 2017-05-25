@@ -40,5 +40,15 @@ namespace Accounting.Model
         }
         #endregion
 
+        public virtual decimal balance
+        {
+            get
+            {
+               decimal TotalCredit = CreditTransactions.Sum(c => c.Amount);
+               decimal TotalDebit = DebitTransactions.Sum(d => d.Amount);
+               decimal TotalBalance = TotalCredit - TotalDebit;
+               return TotalBalance;
+            }
+        }
     }
 }
