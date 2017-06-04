@@ -20,7 +20,15 @@ namespace Accounting.DataBase
             AddNewTransaction("Sale to customer", sog, cab, new DateTime(2017, 5, 25), 34.99m);
             AddNewTransaction("Stock refill", cab, sog, new DateTime(2017, 5, 18), 56.00m);
             AddNewTransaction("Purchase of stock", cab, sog, new DateTime(2017, 4, 01), 210.00m);
+            Context.SaveChanges();
+            AddNewBalanceSheet(new DateTime(2017, 6, 5));
 
+        }
+
+        private void AddNewBalanceSheet(DateTime date)
+        {
+            var bs = new BalanceSheet { Date = date};
+            Context.BalanceSheets.Add(bs);
         }
 
         private Account AddNewAccount(string name)

@@ -22,8 +22,8 @@ namespace Accounting.Model
         {
             get
             {
-                var Id = this.Id;
-                return Container.Instances<Transaction>().Where(t => t.DebitAccount.Id == Id).ToList();
+                var ID = this.Id;
+                return Container.Instances<Transaction>().Where(t => t.DebitAccount.Id == ID).ToList();
             }
         }
         #endregion
@@ -34,8 +34,8 @@ namespace Accounting.Model
         {
             get
             {
-                var Id = this.Id;
-                return Container.Instances<Transaction>().Where(t => t.CreditAccount.Id == Id).ToList();
+                var ID = this.Id;
+                return Container.Instances<Transaction>().Where(t => t.CreditAccount.Id == ID).ToList();
             }
         }
         #endregion

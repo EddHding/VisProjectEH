@@ -1,12 +1,42 @@
-ERROR 7 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
-Could not create constraint or index. See previous errors.
-ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
-Could not create constraint or index. See previous errors.
-ERROR 8 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
-Could not create constraint or index. See previous errors.
-ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
-Could not create constraint or index. See previous errors.
-ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
-Could not create constraint or index. See previous errors.
-ERROR 7 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
-Could not create constraint or index. See previous errors.
+ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: One or more validation errors were detected during model generation:
+
+Accounting.DataBase.AccountBalance: : EntityType 'AccountBalance' has no key defined. Define the key for this EntityType.
+AccountBalances: EntityType: EntitySet 'AccountBalances' is based on type 'AccountBalance' that has no keys defined.
+
+ERROR 8 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: One or more validation errors were detected during model generation:
+
+Accounting.DataBase.AccountBalance: : EntityType 'AccountBalance' has no key defined. Define the key for this EntityType.
+AccountBalances: EntityType: EntitySet 'AccountBalances' is based on type 'AccountBalance' that has no keys defined.
+
+ERROR 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: One or more validation errors were detected during model generation:
+
+Accounting.DataBase.AccountBalance: : EntityType 'AccountBalance' has no key defined. Define the key for this EntityType.
+AccountBalances: EntityType: EntitySet 'AccountBalances' is based on type 'AccountBalance' that has no keys defined.
+
+ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: One or more validation errors were detected during model generation:
+
+Accounting.DataBase.AccountBalance: : EntityType 'AccountBalance' has no key defined. Define the key for this EntityType.
+AccountBalances: EntityType: EntitySet 'AccountBalances' is based on type 'AccountBalance' that has no keys defined.
+
+ERROR 8 NakedObjects.Core.Util.InvokeUtils - Mapping and metadata information could not be found for EntityType 'Accounting.Model.BalanceSheet'.
+ERROR 8 NakedObjects.Core.Util.InvokeUtils - Mapping and metadata information could not be found for EntityType 'Accounting.Model.BalanceSheet'.
+WARN 7 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 7 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 7 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 7 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+ERROR 5 NakedObjects.Core.Util.InvokeUtils - Mapping and metadata information could not be found for EntityType 'Accounting.Model.BalanceSheet'.
+ERROR 5 NakedObjects.Core.Util.InvokeUtils - Mapping and metadata information could not be found for EntityType 'Accounting.Model.BalanceSheet'.
+WARN 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Error in EntityCreateObjectCommand.Execute: Exception has been thrown by the target of an invocation.
+WARN 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 9 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+WARN 9 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Ignoring exception Sequence contains no matching element
+ERROR 9 NakedObjects.Core.Util.InvokeUtils - Exception has been thrown by the target of an invocation.

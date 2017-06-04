@@ -26,6 +26,11 @@ namespace Accounting.Model
             return Container.Instances<Transaction>().OrderByDescending(t => t.Date);
         }
 
+        public IQueryable<BalanceSheet> AllBalanceSheets()
+        {
+            return Container.Instances<BalanceSheet>();
+        }
+
         public IQueryable<Account> FindAccountByName(string name)
         {
             //Filters students to find a match
@@ -39,6 +44,17 @@ namespace Accounting.Model
             //Container.Persist(ref obj);
             return obj;
         }
+
+        public BalanceSheet CreateNewBalanceSheet()
+        {
+            Account[] ac = AllAccounts().ToArray();
+            new AccountBalance(ac[0]);
+            new AccountBalance(ac[1]);
+            new AccountBalance(ac[2]);
+            BalanceSheet obj = Container.NewTransientInstance<BalanceSheet>();
+            return obj;
+        }
+
 
     }
 

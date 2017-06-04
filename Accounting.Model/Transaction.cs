@@ -25,7 +25,7 @@ namespace Accounting.Model
         }
 
         [NakedObjectsIgnore]
-        public virtual int ID { get; set; }
+        public virtual int Id { get; set; }
 
         [MemberOrder (1)]
         public virtual string Name { get; set; }
@@ -56,6 +56,5 @@ namespace Accounting.Model
         public virtual DateTime Date { get; set; }
         [MemberOrder (3)]
         public virtual Decimal Amount { get; set; }
-
     }
 }

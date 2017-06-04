@@ -1,0 +1,12 @@
+ERROR 7 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
+Could not create constraint or index. See previous errors.
+ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
+Could not create constraint or index. See previous errors.
+ERROR 8 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
+Could not create constraint or index. See previous errors.
+ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
+Could not create constraint or index. See previous errors.
+ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
+Could not create constraint or index. See previous errors.
+ERROR 7 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: Introducing FOREIGN KEY constraint 'FK_dbo.Transactions_dbo.Accounts_DebitAccountId' on table 'Transactions' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
+Could not create constraint or index. See previous errors.

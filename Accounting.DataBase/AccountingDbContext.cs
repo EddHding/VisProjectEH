@@ -10,6 +10,8 @@ namespace Accounting.DataBase
             Database.SetInitializer(new AccountingDbInitializer());
         }
 
+        public DbSet<AccountBalance> AccountBalances { get; set; }
+        public DbSet<BalanceSheet> BalanceSheets { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
     }
