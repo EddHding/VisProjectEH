@@ -29,20 +29,22 @@ namespace Accounting.Model
         #region AccountBalances (collection)
         private ICollection<Balances> _AccountBalances = new List<Balances>(); 
         [Eagerly(EagerlyAttribute.Do.Rendering)]
-        [NotPersisted, NotMapped, TableView(false, nameof(Balances.AccountName), nameof(Balances.Balance))]
+        [NotPersisted, NotMapped, TableView(false, nameof(Balances.TypeOfAccount), nameof(Balances.AccountName), nameof(Balances.Balance))]
         public virtual ICollection<Balances> AccountBalances
         {
             get
             {
                 var balances = new List<Balances>();
                 Account[] ac = Container.Instances<Account>().ToArray();
-                for (int i = 0; i < 3; i++) //for each is neater
+                for (int i = 0; i < ac.Count(); i++) //for each is neater
                 {
                     var ab = Container.NewViewModel<Balances>();
                     ab.AccountName = ac[i].AccountName;
                     ab.Balance = ac[i].balanceAtDate(Date); //will need to get balance for a certain date
+                    ab.TypeOfAccount = ac[i].TypeOfAccount;
                     balances.Add(ab);
                 }
+                Container.NewViewModel<Balances>();
                 return balances;
             }
         }

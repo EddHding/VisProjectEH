@@ -17,6 +17,8 @@ namespace Accounting.Model
 
         public virtual Decimal Balance { get; set; }
 
+        public virtual AccountType TypeOfAccount { get; set; }
+
         public string[] DeriveKeys()
         {
             return new string[] { AccountName, Balance.ToString() };
