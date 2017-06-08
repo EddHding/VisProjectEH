@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Model
 {
-    public class AccountBalance
+    public class AccountBalance : IViewModel
     {
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }
@@ -15,13 +15,17 @@ namespace Accounting.Model
         [Title]
         public virtual String AccountName { get; set; }
 
-
         public virtual Decimal Balance { get; set; }
 
-        public AccountBalance(Account account)
+        public string[] DeriveKeys()
         {
-            AccountName = account.AccountName;
-            Balance = account.balance;
+            return new string[] { AccountName, Balance.ToString() };
+        }
+
+        public void PopulateUsingKeys(string[] keys)
+        {
+            AccountName = keys[0];
+            Balance = Convert.ToDecimal(keys[1]);
         }
     }
 }

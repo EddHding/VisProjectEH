@@ -22,7 +22,7 @@ namespace Accounting.DataBase
             AddNewTransaction("Purchase of stock", cab, sog, new DateTime(2017, 4, 01), 210.00m);
             Context.SaveChanges();
             AddNewBalanceSheet(new DateTime(2017, 6, 5));
-
+            AddNewBalanceSheet(new DateTime(2017, 5, 17));
         }
 
         private void AddNewBalanceSheet(DateTime date)

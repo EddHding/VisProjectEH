@@ -1,4 +1,5 @@
 ﻿using NakedObjects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -46,9 +47,22 @@ namespace Accounting.Model
             {
                decimal TotalCredit = CreditTransactions.Sum(c => c.Amount);
                decimal TotalDebit = DebitTransactions.Sum(d => d.Amount);
-               decimal TotalBalance = TotalCredit - TotalDebit;
-               return TotalBalance;
+               return TotalBalance(TotalCredit, TotalDebit);
             }
+        }
+
+        [NakedObjectsIgnore]
+        public virtual decimal balanceAtDate(DateTime userDate)
+        {
+                decimal TotalCredit = CreditTransactions.Where(c => c.Date < userDate).Sum(c => c.Amount);
+                decimal TotalDebit = DebitTransactions.Where(c => c.Date < userDate).Sum(d => d.Amount);
+                return TotalBalance(TotalCredit, TotalDebit);
+        }
+
+        public virtual decimal TotalBalance( decimal tcredit, Decimal tdebit)
+        {
+            decimal TotalBalance = tcredit - tdebit;
+            return TotalBalance;
         }
     }
 }

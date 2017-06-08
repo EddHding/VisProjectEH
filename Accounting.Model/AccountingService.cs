@@ -1,4 +1,5 @@
 ﻿using NakedObjects;
+using System;
 using System.Linq;
 
 
@@ -28,7 +29,7 @@ namespace Accounting.Model
 
         public IQueryable<BalanceSheet> AllBalanceSheets()
         {
-            return Container.Instances<BalanceSheet>();
+            return Container.Instances<BalanceSheet>().OrderByDescending(t => t.Date);
         }
 
         public IQueryable<Account> FindAccountByName(string name)
@@ -47,12 +48,10 @@ namespace Accounting.Model
 
         public BalanceSheet CreateNewBalanceSheet()
         {
-            Account[] ac = AllAccounts().ToArray();
-            new AccountBalance(ac[0]);
-            new AccountBalance(ac[1]);
-            new AccountBalance(ac[2]);
-            BalanceSheet obj = Container.NewTransientInstance<BalanceSheet>();
-            return obj;
+            BalanceSheet bs = Container.NewTransientInstance<BalanceSheet>();
+            bs.Date = DateTime.Today;
+            Container.Persist(ref bs);
+            return bs;
         }
 
 
