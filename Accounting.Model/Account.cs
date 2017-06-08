@@ -17,6 +17,8 @@ namespace Accounting.Model
         [Title]//This property will be used for the object's title at the top of the view and in a link
         public virtual string AccountName { get; set; }
 
+        public virtual AccountType TypeOfAccount { get; set; }
+
         #region DebitTransactions (collection)
         [NotPersisted, NotMapped, TableView(false, nameof(Transaction.Name), nameof(Transaction.Date), nameof(Transaction.Amount), nameof(Transaction.CreditAccount))]
         public virtual ICollection<Transaction> DebitTransactions
@@ -59,7 +61,7 @@ namespace Accounting.Model
                 return TotalBalance(TotalCredit, TotalDebit);
         }
 
-        public virtual decimal TotalBalance( decimal tcredit, Decimal tdebit)
+        public virtual decimal TotalBalance( decimal tcredit, decimal tdebit)
         {
             decimal TotalBalance = tcredit - tdebit;
             return TotalBalance;

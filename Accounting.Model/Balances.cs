@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Model
 {
-    public class AccountBalance : IViewModel
+    public class Balances : IViewModel
     {
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }

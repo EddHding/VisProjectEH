@@ -12,9 +12,13 @@ namespace Accounting.DataBase
         protected override void Seed(AccountingDbContext context)
         {
             this.Context = context;
-            var sog = AddNewAccount("Stock of goods");
-            var bld = AddNewAccount("Building");
-            var cab = AddNewAccount("Cash at Bank");
+            var sog = AddNewAccount("Stock of goods", AccountType.Asset);
+            var bld = AddNewAccount("Building", AccountType.Asset);
+            var cab = AddNewAccount("Cash at Bank", AccountType.Asset);
+            AddNewAccount("Debtor", AccountType.Asset);
+            AddNewAccount("Creditor", AccountType.Liability);
+            AddNewAccount("Shareholders Account", AccountType.Capital);
+            AddNewAccount("Profit", AccountType.Capital);
             Context.SaveChanges();
             AddNewTransaction("Sale to customer", sog, cab, new DateTime(2017, 5, 17), 108.45m);
             AddNewTransaction("Sale to customer", sog, cab, new DateTime(2017, 5, 25), 34.99m);
@@ -31,9 +35,9 @@ namespace Accounting.DataBase
             Context.BalanceSheets.Add(bs);
         }
 
-        private Account AddNewAccount(string name)
+        private Account AddNewAccount(string name, AccountType type)
         {
-            var ac = new Account() { AccountName = name };
+            var ac = new Account() { AccountName = name, TypeOfAccount = type };
             Context.Accounts.Add(ac);
             return ac;
         }

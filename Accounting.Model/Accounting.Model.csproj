@@ -58,7 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="AccountBalance.cs" />
+    <Compile Include="AccountType.cs" />
+    <Compile Include="Balances.cs" />
     <Compile Include="AccountingService.cs" />
     <Compile Include="BalanceSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

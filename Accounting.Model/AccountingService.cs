@@ -19,7 +19,7 @@ namespace Accounting.Model
         {
             //The 'Container' masks all the complexities of 
             //dealing with the database directly.
-            return Container.Instances<Account>();
+            return Container.Instances<Account>().OrderBy(t => t.TypeOfAccount);
         }
 
         public IQueryable<Transaction> AllTransactions()
