@@ -54,6 +54,15 @@ namespace Accounting.Model
             return bs;
         }
 
+        [NakedObjectsIgnore]
+        public Balances CreateNewBalance(String name, Decimal balance, AccountType atype)
+        {
+            var ac = Container.NewViewModel<Balances>();
+            ac.AccountName = name;
+            ac.Balance = balance;
+            ac.TypeOfAccount = atype;
+            return ac;
+        }
 
     }
 

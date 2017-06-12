@@ -11,6 +11,8 @@ namespace Accounting.Model
     public class BalanceSheet
     {
         #region Injected Services
+        public AccountingService AccountingService { set; protected get; }
+
         public IDomainObjectContainer Container { set; protected get; }
         #endregion
 
@@ -44,9 +46,25 @@ namespace Accounting.Model
                     ab.TypeOfAccount = ac[i].TypeOfAccount;
                     balances.Add(ab);
                 }
-                Container.NewViewModel<Balances>();
+                decimal totalassets = GetTotal(balances, AccountType.Asset);
+                balances.Add(AccountingService.CreateNewBalance("Asset_Total", totalassets, AccountType.Total));
+
+                decimal totalliabilities = GetTotal(balances, AccountType.Liability);
+                balances.Add(AccountingService.CreateNewBalance("Liability_Total", totalliabilities, AccountType.Total));
+
+                decimal totalAL = totalassets + totalliabilities;
+                balances.Add(AccountingService.CreateNewBalance("Assets + Liabilities", totalAL, AccountType.Total));
+
+                decimal totalcapital = GetTotal(balances, AccountType.Capital);
+                balances.Add(AccountingService.CreateNewBalance("Capital_Total", totalcapital, AccountType.Total));
+
                 return balances;
             }
+        }
+
+        private static decimal GetTotal(List<Balances> balances, AccountType type)
+        {
+            return balances.Where(a => a.TypeOfAccount == type).Sum(a => a.Balance);
         }
         #endregion
 

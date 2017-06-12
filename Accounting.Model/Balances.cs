@@ -9,6 +9,10 @@ namespace Accounting.Model
 {
     public class Balances : IViewModel
     {
+        #region Injected Services
+        public IDomainObjectContainer Container { set; protected get; }
+        #endregion
+
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }
 

@@ -10,6 +10,7 @@ namespace Accounting.Model
     {
         Capital,
         Asset,
-        Liability
+        Liability,
+        Total
     }
 }
