@@ -62,6 +62,7 @@ namespace Accounting.Model
             }
         }
 
+        [NakedObjectsIgnore]
         private static decimal GetTotal(List<Balances> balances, AccountType type)
         {
             return balances.Where(a => a.TypeOfAccount == type).Sum(a => a.Balance);
