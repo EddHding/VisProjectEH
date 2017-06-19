@@ -1,3 +1,0 @@
-ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: An exception occurred while initializing the database. See the InnerException for details.
-ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: An exception occurred while initializing the database. See the InnerException for details.
-ERROR 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: An exception occurred while initializing the database. See the InnerException for details.
