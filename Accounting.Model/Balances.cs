@@ -25,13 +25,14 @@ namespace Accounting.Model
 
         public string[] DeriveKeys()
         {
-            return new string[] { AccountName, Balance.ToString() };
+            return new string[] { AccountName, Balance.ToString(), ((int)TypeOfAccount).ToString() };
         }
 
         public void PopulateUsingKeys(string[] keys)
         {
             AccountName = keys[0];
             Balance = Convert.ToDecimal(keys[1]);
+            TypeOfAccount = (AccountType)Enum.Parse(typeof(AccountType), keys[2]); //
         }
     }
 }
