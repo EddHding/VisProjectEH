@@ -11,6 +11,8 @@ namespace Accounting.Model
         Capital,
         Asset,
         Liability,
-        Total
+        Total,
+        Revenue,
+        Expenses
     }
 }

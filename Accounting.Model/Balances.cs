@@ -32,7 +32,7 @@ namespace Accounting.Model
         {
             AccountName = keys[0];
             Balance = Convert.ToDecimal(keys[1]);
-            TypeOfAccount = (AccountType)Enum.Parse(typeof(AccountType), keys[2]); //
+            TypeOfAccount = (AccountType)Enum.Parse(typeof(AccountType), keys[2]); //how to turn an int into an enum.
         }
     }
 }
