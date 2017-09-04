@@ -29,20 +29,20 @@ namespace Accounting.Model
         }
 
         #region AccountBalances (collection)
-        private ICollection<Balances> _AccountBalances = new List<Balances>(); 
+        private ICollection<Balance> _AccountBalances = new List<Balance>(); 
         [Eagerly(EagerlyAttribute.Do.Rendering)]
-        [NotPersisted, NotMapped, TableView(false, nameof(Balances.TypeOfAccount), nameof(Balances.AccountName), nameof(Balances.Balance))]
-        public virtual ICollection<Balances> AccountBalances
+        [NotPersisted, NotMapped, TableView(false, nameof(Balance.TypeOfAccount), nameof(Balance.AccountName), nameof(Balance.Amount))]
+        public virtual ICollection<Balance> AccountBalances
         {
             get
             {
-                var balances = new List<Balances>();
+                var balances = new List<Balance>();
                 Account[] ac = Container.Instances<Account>().ToArray();
                 for (int i = 0; i < ac.Count(); i++) //for each is neater
                 {
-                    var ab = Container.NewViewModel<Balances>();
+                    var ab = Container.NewViewModel<Balance>();
                     ab.AccountName = ac[i].AccountName;
-                    ab.Balance = ac[i].balanceAtDate(Date); //will need to get balance for a certain date
+                    ab.Amount = ac[i].balanceAtDate(Date); //will need to get balance for a certain date
                     ab.TypeOfAccount = ac[i].TypeOfAccount;
                     balances.Add(ab);
                 }
@@ -63,9 +63,9 @@ namespace Accounting.Model
         }
 
         [NakedObjectsIgnore]
-        private static decimal GetTotal(List<Balances> balances, AccountType type)
+        private static decimal GetTotal(List<Balance> balances, AccountType type)
         {
-            return balances.Where(a => a.TypeOfAccount == type).Sum(a => a.Balance);
+            return balances.Where(a => a.TypeOfAccount == type).Sum(a => a.Amount);
         }
         #endregion
 
@@ -73,7 +73,7 @@ namespace Accounting.Model
         {
             get
             {
-             return AccountBalances.Sum(b => b.Balance);
+             return AccountBalances.Sum(b => b.Amount);
             }
         }
 

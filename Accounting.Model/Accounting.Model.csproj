@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountType.cs" />
-    <Compile Include="Balances.cs" />
+    <Compile Include="Balance.cs" />
     <Compile Include="AccountingService.cs" />
     <Compile Include="BalanceSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
