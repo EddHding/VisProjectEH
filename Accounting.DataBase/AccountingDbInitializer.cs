@@ -16,6 +16,12 @@ namespace Accounting.DataBase
             //CreateFixture2(context); //Original data
         }
 
+        private void AddNewProfitLossStatement()
+        {
+            //var pls = new ProfitLossStatement {};
+            //Context.ProfitLossStatements.Add(pls);
+        }
+
         private void AddNewBalanceSheet(DateTime date)
         {
             var bs = new BalanceSheet { Date = date};
@@ -42,6 +48,14 @@ namespace Accounting.DataBase
             Context.Transactions.Add(tr);
             return tr;
         }
+
+        private ProfitLossTransaction AddNewProfitLossTransaction(string name, Account dAccount, Account cAccount, DateTime date, decimal amount, decimal costofstock)
+        {
+            var pltr = new ProfitLossTransaction() { Name = name, DebitAccount = dAccount, CreditAccount = cAccount, Date = date, Amount = amount, CostofStock = costofstock };
+            Context.Transactions.Add(pltr);
+            return pltr;
+        }
+
         private void CreateFixture1(AccountingDbContext context)
         {
             var faf = AddNewAccount("Furniture and fittings", AccountType.Asset);
@@ -65,6 +79,7 @@ namespace Accounting.DataBase
             AddNewTransaction("debtors", dbt, bnk, new DateTime(2017, 5, 16), 680m);
             AddNewTransaction("creditors", bnk, crd, new DateTime(2017, 5, 16), 910m);
             AddNewTransaction("Cash Withdrawl", csh, bnk, new DateTime(2017, 5, 16), 20m);
+           // AddNewProfitLossTransaction("Sale to Customer", bnk, stk, new DateTime(2017, 5, 16), 100m, 20m);
             Context.SaveChanges();
             AddNewBalanceSheet(new DateTime(2017, 6, 5));
         }
