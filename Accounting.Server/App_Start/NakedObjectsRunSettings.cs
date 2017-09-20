@@ -35,6 +35,7 @@ namespace NakedObjects.Accounting {
             get
             {
                 return new Type[] {
+                    typeof(Transaction), typeof(StartingTransaction)
                     //You need only register here any domain model types that cannot be
                     //'discovered' by the framework when it 'walks the graph' from the methods
                     //defined on services registered below

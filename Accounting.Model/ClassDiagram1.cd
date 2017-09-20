@@ -14,11 +14,11 @@
       <FileName>AccountingService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Accounting.Model.Balances" Collapsed="true">
+  <Class Name="Accounting.Model.Balance" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAQAAAAAAAAAAAgIAAAAAgAAAAAAAAQAAIAAAAA=</HashCode>
-      <FileName>Balances.cs</FileName>
+      <HashCode>AAACAAQAAAAAAAAAAAAIAACAAgAAAAAAAAQAAIAAAAA=</HashCode>
+      <FileName>Balance.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -30,10 +30,24 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Accounting.Model.Transaction" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="4" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAQAAAAJAEAAAAAAAAWAIAAAAAABIAAAAAAAAgE=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAIAAAAAAAAgE=</HashCode>
       <FileName>Transaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Accounting.Model.AbstractTransaction" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAAAAJAAAAAAAAAAGAIAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>abstractTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Accounting.Model.StartingTransaction" Collapsed="true">
+    <Position X="6.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StartingTransaction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Accounting.Model.AccountType" Collapsed="true">

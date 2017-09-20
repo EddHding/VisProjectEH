@@ -22,9 +22,9 @@ namespace Accounting.Model
             return Container.Instances<Account>().OrderBy(t => t.TypeOfAccount);
         }
 
-        public IQueryable<Transaction> AllTransactions()
+        public IQueryable<AbstractTransaction> AllTransactions()
         {
-            return Container.Instances<Transaction>().OrderByDescending(t => t.Date);
+            return Container.Instances<AbstractTransaction>().OrderByDescending(t => t.Date);
         }
 
         public IQueryable<BalanceSheet> AllBalanceSheets()

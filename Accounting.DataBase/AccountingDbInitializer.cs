@@ -12,8 +12,8 @@ namespace Accounting.DataBase
         protected override void Seed(AccountingDbContext context)
         {
             this.Context = context;
-            //CreateFixture1(context); //Book example p.76 exhibit 8.2
-            CreateFixture2(context); //Original data
+            CreateFixture1(context); //Book example p.76 exhibit 8.2
+            //CreateFixture2(context); //Original data
         }
 
         private void AddNewBalanceSheet(DateTime date)
@@ -29,14 +29,16 @@ namespace Accounting.DataBase
             return ac;
         }
 
-        private void AddBalancetoAccount(Account account, decimal amount)
-        {
-            //account.balance = amount;
-        }
-
         private Transaction AddNewTransaction(string name, Account dAccount, Account cAccount, DateTime date, decimal amount)
         {
             var tr = new Transaction() { Name = name, DebitAccount = dAccount, CreditAccount = cAccount, Date = date, Amount = amount};
+            Context.Transactions.Add(tr);
+            return tr;
+        }
+
+        private StartingTransaction AddNewStartingBalance(Account cAccount, DateTime date, decimal amount)
+        {
+            var tr = new StartingTransaction() {CreditAccount = cAccount, Date = date, Amount = amount };
             Context.Transactions.Add(tr);
             return tr;
         }
@@ -48,16 +50,21 @@ namespace Accounting.DataBase
             var bnk = AddNewAccount("Bank", AccountType.Asset);
             var csh = AddNewAccount("Cash", AccountType.Asset);
             var crd = AddNewAccount("Creditors", AccountType.Liability);
-            var pft = AddNewAccount("Profit", AccountType.Capital);
+            var cap = AddNewAccount("Share Capital", AccountType.Capital);
             Context.SaveChanges();
-            AddBalancetoAccount(faf, 500m);
-            AddBalancetoAccount(stk, 310m);
-            AddBalancetoAccount(dbt, 680m);
-            AddBalancetoAccount(bnk, 1510m);
-            AddBalancetoAccount(csh, 10m);
-            AddBalancetoAccount(crd, 910m);
+            //AddNewStartingBalance(faf, new DateTime(2017, 5, 16), 500);
+            //AddNewStartingBalance(stk, new DateTime(2017, 5, 16), 310);
+            //AddNewStartingBalance(dbt, new DateTime(2017, 5, 16), 680);
+            //AddNewStartingBalance(bnk, new DateTime(2017, 5, 16), 1510);
+            //AddNewStartingBalance(csh, new DateTime(2017, 5, 16), 10);
+            //AddNewStartingBalance(crd, new DateTime(2017, 5, 16), -910);
             Context.SaveChanges();
-            AddNewTransaction("Sale to customer", stk, csh, new DateTime(2017, 5, 17), 10m);
+            AddNewTransaction("Initial Investment", bnk, cap, new DateTime(2017, 5, 16), 2100m);
+            AddNewTransaction("Buy Stock", stk, bnk, new DateTime(2017, 5, 16), 300m);
+            AddNewTransaction("Buy Furniture", faf, bnk, new DateTime(2017, 5, 16), 500m);
+            AddNewTransaction("debtors", dbt, bnk, new DateTime(2017, 5, 16), 680m);
+            AddNewTransaction("creditors", bnk, crd, new DateTime(2017, 5, 16), 910m);
+            AddNewTransaction("Cash Withdrawl", csh, bnk, new DateTime(2017, 5, 16), 20m);
             Context.SaveChanges();
             AddNewBalanceSheet(new DateTime(2017, 6, 5));
         }

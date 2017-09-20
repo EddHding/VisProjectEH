@@ -12,7 +12,7 @@ namespace Accounting.DataBase
 
         public DbSet<BalanceSheet> BalanceSheets { get; set; }
         public DbSet<Account> Accounts { get; set; }
-        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<AbstractTransaction> Transactions { get; set; }
     }
 
 }

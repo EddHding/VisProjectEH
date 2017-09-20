@@ -9,9 +9,9 @@ namespace Accounting.Model
     public class Account
     {
         #region Injected Services
-        //An implementation of this interface is injected automatically by the framework
         public IDomainObjectContainer Container { set; protected get; }
         #endregion
+
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }
         [Title]//This property will be used for the object's title at the top of the view and in a link
@@ -33,12 +33,12 @@ namespace Accounting.Model
        
         #region CreditTransactions (collection)
         [NotPersisted, NotMapped, TableView(false, nameof(Transaction.Name), nameof(Transaction.Date), nameof(Transaction.Amount), nameof(Transaction.DebitAccount))]
-        public virtual ICollection<Transaction> CreditTransactions
+        public virtual ICollection<AbstractTransaction> CreditTransactions
         {
             get
             {
                 var ID = this.Id;
-                return Container.Instances<Transaction>().Where(t => t.CreditAccount.Id == ID).ToList();
+                return Container.Instances<AbstractTransaction>().Where(t => t.CreditAccount.Id == ID).ToList();
             }
         }
         #endregion

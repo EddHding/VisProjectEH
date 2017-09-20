@@ -8,15 +8,8 @@ using System.Threading.Tasks;
 
 namespace Accounting.Model
 {
-    public class Transaction
+    public class Transaction : AbstractTransaction
     {
-        #region Injected Services
-        public AccountingService AccountingService { set; protected get; }
-
-        public IDomainObjectContainer Container { set; protected get; }
-
-        #endregion
-
         public string Title()
         {
             var t = Container.NewTitleBuilder();
@@ -24,10 +17,7 @@ namespace Accounting.Model
             return t.ToString();
         }
 
-        [NakedObjectsIgnore]
-        public virtual int Id { get; set; }
-
-        [MemberOrder (1)]
+        [MemberOrder(1)]
         public virtual string Name { get; set; }
 
         [NakedObjectsIgnore]
@@ -40,21 +30,5 @@ namespace Accounting.Model
         {
             return AccountingService.FindAccountByName(matching);
         }
-
-        [NakedObjectsIgnore]
-        public virtual int? CreditAccountId { get; set; }
-
-        [MemberOrder(5)]
-        public virtual Account CreditAccount { get; set; }
-        [PageSize(10)]
-        public IQueryable<Account> AutoCompleteCreditAccount([MinLength(2)] string matching)
-        {
-            return AccountingService.FindAccountByName(matching);
-        }
-
-        [MemberOrder(2)]
-        public virtual DateTime Date { get; set; }
-        [MemberOrder (3)]
-        public virtual Decimal Amount { get; set; }
     }
 }
