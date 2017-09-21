@@ -49,13 +49,6 @@ namespace Accounting.DataBase
             return tr;
         }
 
-        private ProfitLossTransaction AddNewProfitLossTransaction(string name, Account dAccount, Account cAccount, DateTime date, decimal amount, decimal costofstock)
-        {
-            var pltr = new ProfitLossTransaction() { Name = name, DebitAccount = dAccount, CreditAccount = cAccount, Date = date, Amount = amount, CostofStock = costofstock };
-            Context.Transactions.Add(pltr);
-            return pltr;
-        }
-
         private void CreateFixture1(AccountingDbContext context)
         {
             var faf = AddNewAccount("Furniture and fittings", AccountType.Asset);
