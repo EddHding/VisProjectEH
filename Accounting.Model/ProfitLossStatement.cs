@@ -8,5 +8,6 @@ namespace Accounting.Model
 {
     public class ProfitLossStatement
     {
+
     }
 }

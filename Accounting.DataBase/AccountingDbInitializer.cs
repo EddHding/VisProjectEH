@@ -73,14 +73,15 @@ namespace Accounting.DataBase
             //AddNewStartingBalance(csh, new DateTime(2017, 5, 16), 10);
             //AddNewStartingBalance(crd, new DateTime(2017, 5, 16), -910);
             Context.SaveChanges();
-            AddNewTransaction("Initial Investment", bnk, cap, new DateTime(2017, 5, 16), 2100m);
-            AddNewTransaction("Buy Stock", stk, bnk, new DateTime(2017, 5, 16), 300m);
-            AddNewTransaction("Buy Furniture", faf, bnk, new DateTime(2017, 5, 16), 500m);
+            AddNewTransaction("Initial Investment", bnk, cap, new DateTime(2017, 4, 2), 2100m);
+            AddNewTransaction("Buy Stock", stk, bnk, new DateTime(2017, 4, 21), 300m);
+            AddNewTransaction("Buy Furniture", faf, bnk, new DateTime(2017, 4, 23), 500m);
             AddNewTransaction("debtors", dbt, bnk, new DateTime(2017, 5, 16), 680m);
             AddNewTransaction("creditors", bnk, crd, new DateTime(2017, 5, 16), 910m);
             AddNewTransaction("Cash Withdrawl", csh, bnk, new DateTime(2017, 5, 16), 20m);
-           // AddNewProfitLossTransaction("Sale to Customer", bnk, stk, new DateTime(2017, 5, 16), 100m, 20m);
+            //AddNewProfitLossTransaction("Sale to Customer", bnk, stk, new DateTime(2017, 5, 16), 100m, 20m);
             Context.SaveChanges();
+            AddNewBalanceSheet(new DateTime(2017, 4, 25));
             AddNewBalanceSheet(new DateTime(2017, 6, 5));
         }
         private void CreateFixture2(AccountingDbContext context)

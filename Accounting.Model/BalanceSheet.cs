@@ -73,7 +73,12 @@ namespace Accounting.Model
         {
             get
             {
-             return AccountBalances.Sum(b => b.Amount);
+                decimal totalassets = AccountBalances.Where(a => a.TypeOfAccount == AccountType.Asset).Sum(a => a.Amount);
+                decimal totalliabilities = AccountBalances.Where(a => a.TypeOfAccount == AccountType.Liability).Sum(a => a.Amount);
+                decimal totalAL = totalassets + totalliabilities;
+                decimal totalcapital = AccountBalances.Where(a => a.TypeOfAccount == AccountType.Capital).Sum(a => a.Amount);
+                decimal total = totalAL + totalcapital;
+                return total;
             }
         }
 

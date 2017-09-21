@@ -25,6 +25,7 @@ namespace Accounting.Model
 
         [MemberOrder(4)]
         public virtual Account DebitAccount { get; set; }
+
         [PageSize(10)]
         public IQueryable<Account> AutoCompleteDebitAccount([MinLength(2)] string matching)
         {
