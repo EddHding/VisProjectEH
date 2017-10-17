@@ -64,7 +64,6 @@
     <Compile Include="AccountingService.cs" />
     <Compile Include="BalanceSheet.cs" />
     <Compile Include="ProfitLossStatement.cs" />
-    <Compile Include="ProfitLossTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartingTransaction.cs" />
     <Compile Include="Transaction.cs" />

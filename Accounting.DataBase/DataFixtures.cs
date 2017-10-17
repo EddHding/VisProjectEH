@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Accounting.Model
+namespace Accounting.DataBase
 {
-    public class ProfitLossStatement
+    class DataFixtures
     {
     }
 }
