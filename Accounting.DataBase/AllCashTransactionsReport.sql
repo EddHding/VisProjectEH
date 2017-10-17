@@ -3,6 +3,6 @@
 --2-- | Cash Deposit     |    250     |        Cash        |       Bank        |   ----   |
 -- Use if statement
 --
-SELECT AbstractTransactions.Name, AbstractTransactions.Amount, Accounts.AccountName, Accounts.AccountName, AbstractTransactions.Date
-FROM AbstractTransactions, Accounts
-WHERE (AbstractTransactions.CreditAccountId = 8  AND Accounts.Id = AbstractTransactions.DebitAccountId) OR (AbstractTransactions.DebitAccountId = 8  AND Accounts.Id = AbstractTransactions.CreditAccountId);
+SELECT [Transaction Record].Name, [Transaction Record].[AMOUNT], [Account Record].[ACCOUNT NAME], [Account Record].[ACCOUNT NAME], [Transaction Record].[DATE OF TRANSACTION]
+FROM [Transaction Record], [Account Record]
+WHERE ([Transaction Record].CreditAccountId = 8  AND [Account Record].Id = [Transaction Record].DebitAccountId) OR ([Transaction Record].DebitAccountId = 8  AND [Account Record].Id = [Transaction Record].CreditAccountId);

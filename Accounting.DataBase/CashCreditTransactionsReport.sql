@@ -1,6 +1,6 @@
 ﻿-- Gets all credit transactions involving cash,
--- and gives the name of the transaction the accounts effected,
+-- and gives the name of the transaction the [Account Record] effected,
 -- the date and the amount.
-SELECT AbstractTransactions.Name, AbstractTransactions.Amount, Accounts.AccountName, AbstractTransactions.Date
-FROM AbstractTransactions, Accounts
-WHERE AbstractTransactions.CreditAccountId = 8  AND Accounts.Id = AbstractTransactions.DebitAccountId;
+SELECT [Transaction Record].Name, [Transaction Record].AMOUNT, [Account Record].[ACCOUNT NAME], [Transaction Record].[DATE OF TRANSACTION]
+FROM [Transaction Record], [Account Record]
+WHERE [Transaction Record].CreditAccountId = 8  AND [Account Record].Id = [Transaction Record].DebitAccountId;

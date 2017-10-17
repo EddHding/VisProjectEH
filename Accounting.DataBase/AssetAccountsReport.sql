@@ -1,4 +1,4 @@
-﻿--Get all of the accounts of type Asset.
-SELECT Accounts.AccountName
-FROM Accounts
-WHERE Accounts.TypeOfAccount = 1;
+﻿--Get all of the Accounts of type Asset.
+SELECT [Account Record].[ACCOUNT NAME]
+FROM [Account Record]
+WHERE [Account Record].[TYPE OF ACCOUNT] = 1;
