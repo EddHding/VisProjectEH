@@ -21,7 +21,8 @@ namespace Accounting.DataBase
         {
             this.Context = context;
             CreateStandardAccounts(context);
-            Chapter2_RQ_2_5A(context); //Chapter 2 review question 2.5A
+            Chapter3_RQ_3_5(context); //Chapter 3 review question 3.5
+            //Chapter2_RQ_2_5A(context); //Chapter 2 review question 2.5A
             //Chapter1_RQ_1_14A(context); //Chapter 1 review question 1.14A
             //CreateFixture1(context); //Book example p.76 exhibit 8.2
             //CreateFixture2(context); //Original data
@@ -129,6 +130,41 @@ namespace Accounting.DataBase
             AddNewBalanceSheet(new DateTime(2019, 7, 2));
         }
 
+        private void Chapter3_RQ_3_5(AccountingDbContext context)
+        {
+            //for additional accounts
+            var fur = AddNewAccount("Office Furniture", AccountType.Asset);
+            var veh = AddNewAccount("Vehicles", AccountType.Asset);
+            Context.SaveChanges();
+            //for transactions
+            AddNewTransaction("Initial Investment", bnk, sha, new DateTime(2017, 7, 1), 10000m);
+            AddNewTransaction("Loan from T Cooper", csh, crd, new DateTime(2017, 7, 2), 400m);
+            AddNewTransaction("Bought stock from F Jones", stk, crd, new DateTime(2017, 7, 3), 840m);
+            AddNewTransaction("Bought stock from S Charles", stk, crd, new DateTime(2017, 7, 3), 3600m);
+            AddNewTransaction("Sold Stock", csh, stk, new DateTime(2017, 7, 4), 200m);
+            AddNewTransaction("Cash Deposit", bnk, csh, new DateTime(2017, 7, 6), 250m);
+            AddNewTransaction("Sold stock to C Moody", dbt, stk, new DateTime(2017, 7, 8), 180m);
+            AddNewTransaction("Sold stock to J Newman", dbt, stk, new DateTime(2017, 7, 10), 220m);
+            AddNewTransaction("Bought stock from F Jones", stk, crd, new DateTime(2017, 7, 11), 370m);
+            AddNewTransaction("C Moody returned stock", stk, dbt, new DateTime(2017, 7, 12), 40m);
+            AddNewTransaction("Sold stock to H Morgan", dbt, stk, new DateTime(2017, 7, 14), 190m);
+            AddNewTransaction("Sold stock to J Peat", dbt, stk, new DateTime(2017, 7, 14), 320m);
+            AddNewTransaction("Returned stock to F Jones", crd, stk, new DateTime(2017, 7, 15), 140m);
+            AddNewTransaction("Bought van from Manchester Motors", veh, crd, new DateTime(2017, 7, 17), 2600m);
+            AddNewTransaction("Bought office furniture from Faster Supplies Ltd", fur, crd, new DateTime(2017, 7, 18), 600m);
+            AddNewTransaction("Returned stock to S Charles", crd, stk, new DateTime(2017, 7, 19), 110m);
+            AddNewTransaction("Bought stock", stk, csh, new DateTime(2017, 7, 20), 220m);
+            AddNewTransaction("Sold Stock", csh, stk, new DateTime(2017, 7, 24), 70m);
+            AddNewTransaction("Paid Money owed to F Jones", crd, bnk, new DateTime(2017, 7, 25), 1070m);
+            AddNewTransaction("H Morgan returned stock", stk, dbt, new DateTime(2017, 7, 26), 30m);
+            AddNewTransaction("Returned Office furniture to Faster Supplies Ltd", crd, fur, new DateTime(2017, 7, 27), 160m);
+            AddNewTransaction("Loan from E Sangster", csh, crd, new DateTime(2017, 7, 28), 500m);
+            AddNewTransaction("Paid Money owed to Manchester Motors", crd, bnk, new DateTime(2017, 7, 29), 2600m);
+            AddNewTransaction("Bought Office Furniture", fur, csh, new DateTime(2017, 7, 31), 100m);
+            Context.SaveChanges();
+            AddNewBalanceSheet(new DateTime(2017, 6, 30));
+            AddNewBalanceSheet(new DateTime(2017, 8, 1));
+        }
         private void CreateStandardAccounts(AccountingDbContext context)
         {
             stk = AddNewAccount("Stock", AccountType.Asset);
