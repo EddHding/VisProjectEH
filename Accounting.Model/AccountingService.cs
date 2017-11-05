@@ -64,6 +64,16 @@ namespace Accounting.Model
             return ac;
         }
 
+        public IQueryable<ProfitLossStatement> AllProfitLossStatements()
+        {
+            return Container.Instances<ProfitLossStatement>().OrderByDescending(t => t.EndDate);
+        }
+
+        public IQueryable<Sale> AllSales()
+        {
+            return Container.Instances<Sale>().OrderByDescending(t => t.Date);
+        }
+
     }
 
 }

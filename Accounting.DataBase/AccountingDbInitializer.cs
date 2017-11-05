@@ -28,10 +28,22 @@ namespace Accounting.DataBase
             //CreateFixture2(context); //Original data
         }
 
-        private void AddNewProfitLossStatement()
+        private void AddNewSale(DateTime date, decimal stockprice, decimal saleprice, string name)
         {
-            //var pls = new ProfitLossStatement {};
-            //Context.ProfitLossStatements.Add(pls);
+            var sale = new Sale {Date = date, ValueOfStocksSold = stockprice, SalePrice = saleprice, Name = name };
+            Context.Sales.Add(sale);
+        }
+
+        private void AddNewSalesAccount(string name, decimal balance)
+        {
+            var sac = new SalesAccount {Name = name, Balance = balance };
+            Context.SalesAccounts.Add(sac);
+        }
+
+        private void AddNewProfitLossStatement(DateTime startdate, DateTime enddate)
+        {
+            var pls = new ProfitLossStatement {StartDate = startdate, EndDate = enddate};
+            Context.ProfitLossStatements.Add(pls);
         }
 
         private void AddNewBalanceSheet(DateTime date)
@@ -164,6 +176,9 @@ namespace Accounting.DataBase
             Context.SaveChanges();
             AddNewBalanceSheet(new DateTime(2017, 6, 30));
             AddNewBalanceSheet(new DateTime(2017, 8, 1));
+            //additional
+            AddNewProfitLossStatement(new DateTime(2017, 7, 1), new DateTime(2017, 7, 31));
+            Context.SaveChanges();
         }
         private void CreateStandardAccounts(AccountingDbContext context)
         {

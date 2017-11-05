@@ -19,6 +19,11 @@ namespace Accounting.Model
 
         public virtual AccountType TypeOfAccount { get; set; }
 
+        internal static void Where(Func<object, object> p)
+        {
+            throw new NotImplementedException();
+        }
+
         #region DebitTransactions (collection)
         [NotPersisted, NotMapped, TableView(false, nameof(Transaction.Name), nameof(Transaction.Date), nameof(Transaction.Amount), nameof(Transaction.CreditAccount))]
         public virtual ICollection<Transaction> DebitTransactions

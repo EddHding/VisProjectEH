@@ -15,6 +15,9 @@ namespace Accounting.DataBase
         public DbSet<BalanceSheet> BalanceSheets { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AbstractTransaction> Transactions { get; set; }
+        public DbSet<ProfitLossStatement> ProfitLossStatements { get; set; }
+        public DbSet<SalesAccount> SalesAccounts { get; set; }
+        public DbSet<Sale> Sales { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

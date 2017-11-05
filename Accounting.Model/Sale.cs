@@ -1,6 +1,7 @@
 ﻿using NakedObjects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +18,16 @@ namespace Accounting.Model
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }
 
+        [MemberOrder(6)]
         public virtual DateTime Date { get; set; }
 
+        [MemberOrder(5)]
         public virtual Decimal ValueOfStocksSold { get; set; }
 
+        [MemberOrder(4)]
         public virtual Decimal SalePrice { get; set; }
 
+        [MemberOrder(1)]
         public virtual string Name { get; set; }
 
         public string Title()

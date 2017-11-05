@@ -12,27 +12,11 @@ namespace Accounting.Model
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }
 
+        [MemberOrder(1)]
         public virtual DateTime StartDate { get; set; }
 
+        [MemberOrder(2)]
         public virtual DateTime EndDate { get; set; } //date restrictions for the given month 
-
-        public virtual PLAccount PLAccount { get; set; }
-
-        #region PLAccounts (collection)
-        private ICollection<PLAccount> _PLAccounts = new List<PLAccount>();
-
-        public virtual ICollection<PLAccount> PLAccounts
-        {
-            get
-            {
-                return _PLAccounts;
-            }
-            set
-            {
-                _PLAccounts = value;
-            }
-        }
-        #endregion
 
     }
 }

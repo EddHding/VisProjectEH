@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 
 namespace Accounting.Model
 {
-    public class PLAccount
+    public class SalesAccount
     {
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }
 
-        public virtual String Name { get; set; }
+        public virtual string Name { get; set; }
 
-        public virtual Decimal Ammount { get; set; }
+        public virtual Decimal Balance { get; set; }
+
 
     }
+
 }
