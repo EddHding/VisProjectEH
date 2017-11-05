@@ -54,6 +54,14 @@ namespace Accounting.DataBase
             accountConfig.Property(a => a.AccountName).HasColumnName("ACCOUNT NAME");
             accountConfig.Property(a => a.TypeOfAccount).HasColumnName("TYPE OF ACCOUNT");
         }
+
+        private void DefineProfitLossStatement(EntityTypeConfiguration<ProfitLossStatement> plConfig)
+        {
+            plConfig.ToTable("Profit and Loss Statement");
+            plConfig.HasKey(a => a.Id);
+            plConfig.Property(a => a.StartDate).HasColumnName("START DATE");
+            plConfig.Property(a => a.EndDate).HasColumnName("END DATE");
+        }
     }
 
 }

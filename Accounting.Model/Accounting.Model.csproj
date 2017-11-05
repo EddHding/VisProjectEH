@@ -68,7 +68,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sale.cs" />
     <Compile Include="StartingTransaction.cs" />
-    <Compile Include="StockAccount.cs" />
     <Compile Include="Transaction.cs" />
   </ItemGroup>
   <ItemGroup>

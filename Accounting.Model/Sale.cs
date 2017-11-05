@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Model
 {
-    public class Sale
+    public class Sale 
     {
         #region Injected Services
         public AccountingService AccountingService { set; protected get; }

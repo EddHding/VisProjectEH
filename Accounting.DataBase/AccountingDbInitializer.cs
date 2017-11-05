@@ -8,6 +8,9 @@ namespace Accounting.DataBase
 {
     public class AccountingDbInitializer : DropCreateDatabaseAlways<AccountingDbContext>
     {
+        #region Injected Services
+        public AccountingService AccountingService { set; protected get; }
+        #endregion
         private Account stk;
         private Account bnk;
         private Account crd;
@@ -40,9 +43,9 @@ namespace Accounting.DataBase
             Context.SalesAccounts.Add(sac);
         }
 
-        private void AddNewProfitLossStatement(DateTime startdate, DateTime enddate)
+        private void AddNewProfitLossStatement(DateTime startdate, DateTime enddate, SalesAccount stock, SalesAccount sales)
         {
-            var pls = new ProfitLossStatement {StartDate = startdate, EndDate = enddate};
+            var pls = new ProfitLossStatement {StartDate = startdate, EndDate = enddate, Stock = stock, TotalSales = sales};
             Context.ProfitLossStatements.Add(pls);
         }
 
@@ -177,7 +180,11 @@ namespace Accounting.DataBase
             AddNewBalanceSheet(new DateTime(2017, 6, 30));
             AddNewBalanceSheet(new DateTime(2017, 8, 1));
             //additional
-            AddNewProfitLossStatement(new DateTime(2017, 7, 1), new DateTime(2017, 7, 31));
+            AddNewSalesAccount("Stock", stk.balanceAtDate(new DateTime(2017, 7, 31)));
+            AddNewSalesAccount("Sale Price", 0);
+            var stock = AccountingService.FindSalesAccountByName("Stock").ElementAt(0);
+            var saleprice = AccountingService.FindSalesAccountByName("Sale Price").ElementAt(0);
+            AddNewProfitLossStatement(new DateTime(2017, 7, 1), new DateTime(2017, 7, 31), stock, saleprice);
             Context.SaveChanges();
         }
         private void CreateStandardAccounts(AccountingDbContext context)

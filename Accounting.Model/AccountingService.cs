@@ -74,6 +74,27 @@ namespace Accounting.Model
             return Container.Instances<Sale>().OrderByDescending(t => t.Date);
         }
 
+        public Sale CreateNewSale()
+        {
+            Sale obj = Container.NewTransientInstance<Sale>();
+            //set up any parameters
+            //Container.Persist(ref obj);
+            return obj;
+        }
+
+        public ProfitLossStatement CreateProfitLossStatement()
+        {
+            ProfitLossStatement pls = Container.NewTransientInstance<ProfitLossStatement>();
+            return pls;
+        }
+
+        [NakedObjectsIgnore]
+        public IQueryable<SalesAccount> FindSalesAccountByName(string name)
+        {
+            //Filters students to find a match
+            return Container.Instances<SalesAccount>().Where(c => c.Name.ToUpper().Contains(name.ToUpper()));
+        }
+
     }
 
 }
