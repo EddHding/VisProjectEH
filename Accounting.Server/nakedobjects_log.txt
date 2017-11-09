@@ -1,8 +1,0 @@
-ERROR 8 NakedObjects.Core.Util.InvokeUtils - Mapping and metadata information could not be found for EntityType 'Accounting.Model.ProfitLossStatement'.
-ERROR 8 NakedObjects.Core.Util.InvokeUtils - Mapping and metadata information could not be found for EntityType 'Accounting.Model.ProfitLossStatement'.
-ERROR 5 NakedObjects.Core.Util.InvokeUtils - Mapping and metadata information could not be found for EntityType 'Accounting.Model.ProfitLossStatement'.
-ERROR 5 NakedObjects.Core.Util.InvokeUtils - Mapping and metadata information could not be found for EntityType 'Accounting.Model.ProfitLossStatement'.
-ERROR 5 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: An exception occurred while initializing the database. See the InnerException for details.
-ERROR 6 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: An exception occurred while initializing the database. See the InnerException for details.
-ERROR 8 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: An exception occurred while initializing the database. See the InnerException for details.
-ERROR 9 NakedObjects.Persistor.Entity.Component.EntityObjectStore - Failed to create Code First DbContext: An exception occurred while initializing the database. See the InnerException for details.

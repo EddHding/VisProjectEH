@@ -12,6 +12,7 @@ namespace Accounting.Model
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }
 
+        [Title]
         public virtual string Name { get; set; }
 
         public virtual Decimal Balance { get; set; }

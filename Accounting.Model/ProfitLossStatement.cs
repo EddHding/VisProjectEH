@@ -24,7 +24,7 @@ namespace Accounting.Model
         [MemberOrder(2)]
         public virtual DateTime EndDate { get; set; } //date restrictions for the given month
 
-        [MemberOrder(3), ]
+        [MemberOrder(3)]
         public virtual SalesAccount Stock { get; set; }
 
         [MemberOrder(4)]
@@ -37,13 +37,18 @@ namespace Accounting.Model
         {
             get
             {
-                var Sales = new List<Sale>();
+                var OGStock = Stock.Balance;
+                var StockChange = Stock.Balance;
+                var TSales = TotalSales.Balance;
+                var Sales = Container.Instances<Sale>().ToList();
                 foreach (var s in Sales)
                 {
-                    Stock.Balance = Stock.Balance - s.ValueOfStocksSold;
-                    TotalSales.Balance = TotalSales.Balance - s.SalePrice;
+                    StockChange = Stock.Balance - s.ValueOfStocksSold;
+                    TSales = TotalSales.Balance + s.SalePrice;
                 }
-                return TotalSales.Balance - Stock.Balance;
+                StockChange = OGStock - StockChange;
+                var profit = TSales - StockChange;
+                return profit;
             }
         }
 

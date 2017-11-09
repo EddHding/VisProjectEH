@@ -14,6 +14,8 @@ namespace Accounting.Model
         //An implementation of this interface is injected automatically by the framework
         public IDomainObjectContainer Container { set; protected get; }
         #endregion
+        SalesAccount PLStock;
+        SalesAccount PLPrice;
 
         public IQueryable<Account> AllAccounts()
         {
@@ -82,9 +84,16 @@ namespace Accounting.Model
             return obj;
         }
 
-        public ProfitLossStatement CreateProfitLossStatement()
+        public ProfitLossStatement CreateProfitLossStatement(DateTime startdate, DateTime enddate)
         {
             ProfitLossStatement pls = Container.NewTransientInstance<ProfitLossStatement>();
+            pls.StartDate = startdate;
+            pls.EndDate = enddate;
+            Account Stock = FindAccountByName("Stock").First();
+            PLStock = CreateNewSalesAccount("Stock", Stock.balanceAtDate(enddate));
+            pls.Stock = PLStock;
+            PLPrice = CreateNewSalesAccount("Sale Price", 0m);
+            pls.TotalSales = PLPrice;
             return pls;
         }
 
@@ -93,6 +102,24 @@ namespace Accounting.Model
         {
             //Filters students to find a match
             return Container.Instances<SalesAccount>().Where(c => c.Name.ToUpper().Contains(name.ToUpper()));
+        }
+
+        [NakedObjectsIgnore]
+        public SalesAccount CreateNewSalesAccount(string name, decimal balance)
+        {
+            SalesAccount obj = Container.NewTransientInstance<SalesAccount>();
+            obj.Name = name;
+            obj.Balance = balance;
+            return obj;
+        }
+
+        public void SetUp()
+        {
+            //additional
+            //SalesAccount PLStock = AddNewSalesAccount("Stock", stk.balanceAtDate(new DateTime(2017, 7, 31)));
+            //SalesAccount PLPrice = AddNewSalesAccount("Sale Price", 0m);
+            //AddNewProfitLossStatement(new DateTime(2017, 7, 1), new DateTime(2017, 7, 31), PLStock, PLPrice);
+            CreateProfitLossStatement(new DateTime(2017, 6, 30), new DateTime(2017, 8, 1));
         }
 
     }
