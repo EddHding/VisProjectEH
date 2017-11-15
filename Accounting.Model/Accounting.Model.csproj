@@ -67,7 +67,6 @@
     <Compile Include="ProfitLossStatement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sale.cs" />
-    <Compile Include="StartingTransaction.cs" />
     <Compile Include="Transaction.cs" />
   </ItemGroup>
   <ItemGroup>

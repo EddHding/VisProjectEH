@@ -67,13 +67,6 @@ namespace Accounting.DataBase
             return tr;
         }
 
-        private StartingTransaction AddNewStartingBalance(Account cAccount, DateTime date, decimal amount)
-        {
-            var tr = new StartingTransaction() {CreditAccount = cAccount, Date = date, Amount = amount };
-            Context.Transactions.Add(tr);
-            return tr;
-        }
-
         private void CreateFixture1(AccountingDbContext context)
         {
             var faf = AddNewAccount("Furniture and fittings", AccountType.Asset);
