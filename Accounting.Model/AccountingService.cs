@@ -14,8 +14,8 @@ namespace Accounting.Model
         //An implementation of this interface is injected automatically by the framework
         public IDomainObjectContainer Container { set; protected get; }
         #endregion
-        SalesAccount PLStock;
-        SalesAccount PLPrice;
+        ProfitLossField PLStock;
+        ProfitLossField PLPrice;
 
         public IQueryable<Account> AllAccounts()
         {
@@ -98,16 +98,16 @@ namespace Accounting.Model
         }
 
         [NakedObjectsIgnore]
-        public IQueryable<SalesAccount> FindSalesAccountByName(string name)
+        public IQueryable<ProfitLossField> FindSalesAccountByName(string name)
         {
             //Filters students to find a match
-            return Container.Instances<SalesAccount>().Where(c => c.Name.ToUpper().Contains(name.ToUpper()));
+            return Container.Instances<ProfitLossField>().Where(c => c.Name.ToUpper().Contains(name.ToUpper()));
         }
 
         [NakedObjectsIgnore]
-        public SalesAccount CreateNewSalesAccount(string name, decimal balance)
+        public ProfitLossField CreateNewSalesAccount(string name, decimal balance)
         {
-            SalesAccount obj = Container.NewTransientInstance<SalesAccount>();
+            ProfitLossField obj = Container.NewTransientInstance<ProfitLossField>();
             obj.Name = name;
             obj.Balance = balance;
             return obj;

@@ -34,9 +34,9 @@ namespace Accounting.DataBase
             Context.Sales.Add(sale);
         }
 
-        private SalesAccount AddNewSalesAccount(string name, decimal balance)
+        private ProfitLossField AddNewSalesAccount(string name, decimal balance)
         {
-            var sac = new SalesAccount {Name = name, Balance = balance };
+            var sac = new ProfitLossField {Name = name, Balance = balance };
             Context.SalesAccounts.Add(sac);
             return sac;
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Model
 {
-    public class SalesAccount
+    public class ProfitLossField
     {
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }

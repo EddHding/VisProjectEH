@@ -63,7 +63,7 @@
     <Compile Include="Balance.cs" />
     <Compile Include="AccountingService.cs" />
     <Compile Include="BalanceSheet.cs" />
-    <Compile Include="SalesAccount.cs" />
+    <Compile Include="ProfitLossField.cs" />
     <Compile Include="ProfitLossStatement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sale.cs" />

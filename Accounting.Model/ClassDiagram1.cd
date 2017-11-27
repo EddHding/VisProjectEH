@@ -73,11 +73,11 @@
       <FileName>Sale.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Accounting.Model.SalesAccount">
+  <Class Name="Accounting.Model.ProfitLossField">
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAgAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SalesAccount.cs</FileName>
+      <FileName>ProfitLossField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Accounting.Model.ProfitLossStatement">

@@ -25,10 +25,10 @@ namespace Accounting.Model
         public virtual DateTime EndDate { get; set; } //date restrictions for the given month
 
         [MemberOrder(3)]
-        public virtual SalesAccount Stock { get; set; }
+        public virtual ProfitLossField Stock { get; set; }
 
         [MemberOrder(4)]
-        public virtual SalesAccount TotalSales { get; set; }
+        public virtual ProfitLossField TotalSales { get; set; }
 
 
 
