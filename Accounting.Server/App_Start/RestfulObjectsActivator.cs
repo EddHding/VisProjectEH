@@ -6,7 +6,7 @@
 // See the License for the specific language governing permissions and limitations under the License.
 
 using log4net.Config;
-using NakedObjects.Template;
+using NakedObjects.Accounting;
 using System.Web.Http;
 using System.Web.Routing;
 using WebActivatorEx;
@@ -15,7 +15,7 @@ using WebActivatorEx;
 [assembly: PostApplicationStartMethod(typeof (RestfulObjectsActivator), "PostStart")]
 [assembly: XmlConfigurator] // log4net startup config
 
-namespace NakedObjects.Template {
+namespace NakedObjects.Accounting {
     public static class RestfulObjectsActivator {
         public static void PreStart() {
             GlobalConfiguration.Configure(CorsConfig.RegisterCors);

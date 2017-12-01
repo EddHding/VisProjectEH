@@ -9,29 +9,44 @@ using System.Web.Http;
 using System.Web.Routing;
 using NakedObjects.Rest;
 using NakedObjects.Rest.Media;
-using System;
-using NakedObjects.Accounting;
+using System.Web.Configuration;
 
-namespace NakedObjects.Template {
-    public class RestfulObjectsConfig {
+namespace NakedObjects.Accounting
+{
+    public class RestfulObjectsConfig
+    {
 
-        public static void RegisterRestfulObjectsRoutes(RouteCollection routes) {
-            if (NakedObjectsRunSettings.RestRoot != null) {
+        public static void RegisterRestfulObjectsRoutes(RouteCollection routes)
+        {
+            if (NakedObjectsRunSettings.RestRoot != null)
+            {
                 RestfulObjectsControllerBase.AddRestRoutes(routes, NakedObjectsRunSettings.RestRoot);
             }
         }
 
-        public static void RestPostStart() {
-            if (NakedObjectsRunSettings.RestRoot != null) {
+        public static void RestPostStart()
+        {
+            if (NakedObjectsRunSettings.RestRoot != null)
+            {
                 GlobalConfiguration.Configuration.Formatters.Clear();
                 GlobalConfiguration.Configuration.Formatters.Insert(0, new JsonNetFormatter(null));
-                //GlobalConfiguration.Configuration.MessageHandlers.Add(new AccessControlExposeHeadersHandler());
-                //GlobalConfiguration.Configuration.MessageHandlers.Add(new BasicAuthenticationHandler());
+
+                var clientID = WebConfigurationManager.AppSettings["auth0:ClientId"];
+                var clientSecret = WebConfigurationManager.AppSettings["auth0:ClientSecret"];
+
+                GlobalConfiguration.Configuration.MessageHandlers.Add(new JsonWebTokenValidationHandler()
+                {
+                    Audience = clientID,
+                    SymmetricKey = clientSecret,
+                    IsSecretBase64Encoded = false
+                });
             }
         }
 
-        public static void RestPreStart() {
-            if (NakedObjectsRunSettings.RestRoot != null) {
+        public static void RestPreStart()
+        {
+            if (NakedObjectsRunSettings.RestRoot != null)
+            {
                 // to make whole application 'read only' 
                 //RestfulObjectsControllerBase.IsReadOnly = true;
 

@@ -1,4 +1,4 @@
-namespace NakedObjects.Template.App_Start
+namespace NakedObjects.Accounting
 {
     using System;
     using System.Collections;
