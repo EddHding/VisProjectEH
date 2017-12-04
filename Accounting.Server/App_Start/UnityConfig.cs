@@ -20,6 +20,8 @@ using NakedObjects.Unity;
 using Common.Logging;
 using NakedObjects.Facade.Interface;
 using NakedObjects.Accounting;
+using NakedObjects.Architecture.Component;
+using NakedObjects.Meta.Audit;
 
 namespace NakedObjects.Template
 {
@@ -84,6 +86,15 @@ namespace NakedObjects.Template
 
                 //Externals
                 container.RegisterType<IPrincipal>(new InjectionFactory(c => HttpContext.Current.User));
+
+                if (NakedObjectsRunSettings.AuditConfig() != null)
+                {
+                    container.RegisterType(typeof(IFacetDecorator), typeof(AuditManager),
+                        "AuditManager", new ContainerControlledLifetimeManager());
+                    container.RegisterInstance(typeof(IAuditConfiguration), NakedObjectsRunSettings.AuditConfig(),
+                         new ContainerControlledLifetimeManager());
+                }
+
             }
             catch (Exception e)
             {

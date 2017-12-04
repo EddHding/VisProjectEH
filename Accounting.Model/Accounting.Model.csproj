@@ -60,6 +60,9 @@
     <Compile Include="abstractTransaction.cs" />
     <Compile Include="Account.cs" />
     <Compile Include="AccountType.cs" />
+    <Compile Include="AuditMenu.cs" />
+    <Compile Include="AuditRecord.cs" />
+    <Compile Include="AuditService.cs" />
     <Compile Include="Balance.cs" />
     <Compile Include="AccountingService.cs" />
     <Compile Include="BalanceSheet.cs" />

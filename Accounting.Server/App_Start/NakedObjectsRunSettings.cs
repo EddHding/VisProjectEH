@@ -12,10 +12,16 @@ using NakedObjects.Menu;
 using NakedObjects.Persistor.Entity.Configuration;
 using Accounting.Model;
 using Accounting.DataBase;
+using NakedObjects.Meta.Audit;
 
 namespace NakedObjects.Accounting {
     public class NakedObjectsRunSettings
     {
+        public static IAuditConfiguration AuditConfig()
+        {
+            var config = new AuditConfiguration<AuditService>();
+            return config;
+        }
 
         public static string RestRoot
         {
@@ -48,7 +54,9 @@ namespace NakedObjects.Accounting {
             get
             {
                 return new Type[] {
-                    typeof(AccountingService)
+                    typeof(AccountingService),
+                    typeof(AuditService),
+                    typeof(AuditMenu)
                 };
             }
         }
@@ -68,7 +76,8 @@ namespace NakedObjects.Accounting {
         public static IMenu[] MainMenus(IMenuFactory factory)
         {
             return new IMenu[] {
-                factory.NewMenu<AccountingService>(true, "Menu")
+                factory.NewMenu<AccountingService>(true, "Main Menu"),
+                factory.NewMenu<AuditMenu>(true, "Audit Menu")
             };
         }
     }

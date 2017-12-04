@@ -1,0 +1,40 @@
+﻿using NakedObjects.Audit;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Security.Principal;
+
+namespace Accounting.Model
+{
+    public class AuditService : IAuditor
+    {
+        #region Injected Services
+        //An implementation of this interface is injected automatically by the framework
+        public IDomainObjectContainer Container { set; protected get; }
+        #endregion
+        public void ActionInvoked(IPrincipal byPrincipal, string actionName, string serviceName, bool queryOnly, object[] withParameters)
+        {
+            if (queryOnly != true)
+            {
+                AuditRecord audit = Container.NewTransientInstance(AuditRecord);
+            }
+        }
+
+        public void ActionInvoked(IPrincipal byPrincipal, string actionName, object onObject, bool queryOnly, object[] withParameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ObjectPersisted(IPrincipal byPrincipal, object updatedObject)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ObjectUpdated(IPrincipal byPrincipal, object updatedObject)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

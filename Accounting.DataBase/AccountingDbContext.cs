@@ -18,6 +18,7 @@ namespace Accounting.DataBase
         public DbSet<ProfitLossStatement> ProfitLossStatements { get; set; }
         public DbSet<ProfitLossField> SalesAccounts { get; set; }
         public DbSet<Sale> Sales { get; set; }
+        public DbSet<AuditRecord> AuditRecords { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

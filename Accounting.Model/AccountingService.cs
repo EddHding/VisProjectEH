@@ -90,22 +90,22 @@ namespace Accounting.Model
             pls.StartDate = startdate;
             pls.EndDate = enddate;
             Account Stock = FindAccountByName("Stock").First();
-            PLStock = CreateNewSalesAccount("Stock", Stock.balanceAtDate(enddate));
+            PLStock = CreateProfitLossField("Stock", Stock.balanceAtDate(enddate));
             pls.Stock = PLStock;
-            PLPrice = CreateNewSalesAccount("Sale Price", 0m);
+            PLPrice = CreateProfitLossField("Sale Price", 0m);
             pls.TotalSales = PLPrice;
             return pls;
         }
 
         [NakedObjectsIgnore]
-        public IQueryable<ProfitLossField> FindSalesAccountByName(string name)
+        public IQueryable<ProfitLossField> FindProfitLossFieldByName(string name)
         {
             //Filters students to find a match
             return Container.Instances<ProfitLossField>().Where(c => c.Name.ToUpper().Contains(name.ToUpper()));
         }
 
         [NakedObjectsIgnore]
-        public ProfitLossField CreateNewSalesAccount(string name, decimal balance)
+        public ProfitLossField CreateProfitLossField(string name, decimal balance)
         {
             ProfitLossField obj = Container.NewTransientInstance<ProfitLossField>();
             obj.Name = name;
