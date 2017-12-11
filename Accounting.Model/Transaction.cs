@@ -31,5 +31,10 @@ namespace Accounting.Model
         {
             return AccountingService.FindAccountByName(matching);
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

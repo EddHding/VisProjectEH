@@ -62,6 +62,8 @@
     <Compile Include="AccountType.cs" />
     <Compile Include="AuditMenu.cs" />
     <Compile Include="AuditRecord.cs" />
+    <Compile Include="AuditRecordObjects.cs" />
+    <Compile Include="AuditRecordServices.cs" />
     <Compile Include="AuditService.cs" />
     <Compile Include="Balance.cs" />
     <Compile Include="AccountingService.cs" />

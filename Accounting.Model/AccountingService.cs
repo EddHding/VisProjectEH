@@ -94,6 +94,7 @@ namespace Accounting.Model
             pls.Stock = PLStock;
             PLPrice = CreateProfitLossField("Sale Price", 0m);
             pls.TotalSales = PLPrice;
+            Container.Persist(ref pls);
             return pls;
         }
 

@@ -17,29 +17,52 @@ namespace Accounting.Model
         #endregion
         public void ActionInvoked(IPrincipal byPrincipal, string actionName, string serviceName, bool queryOnly, object[] withParameters)
         {
-    
-                AuditRecord ar = Container.NewTransientInstance<AuditRecord>();
+            if (queryOnly != true)
+            {
+                AuditRecordServices ar = Container.NewTransientInstance<AuditRecordServices>();
                 ar.UserName = byPrincipal.Identity.Name;
                 ar.ActionName = actionName;
                 ar.ServiceName = serviceName;
                 ar.Date = DateTime.Now;
                 Container.Persist(ref ar);
-            
+            }                            
         }
 
         public void ActionInvoked(IPrincipal byPrincipal, string actionName, object onObject, bool queryOnly, object[] withParameters)
         {
-            
+            if (queryOnly != true)
+            {
+                AuditRecordObjects ar = Container.NewTransientInstance<AuditRecordObjects>();
+                ar.UserName = byPrincipal.Identity.Name;
+                ar.ActionName = actionName;
+                ar.Object = onObject;
+                ar.Date = DateTime.Now;
+                Container.Persist(ref ar);
+            }
         }
 
         public void ObjectPersisted(IPrincipal byPrincipal, object updatedObject)
         {
-            
+            // is assignable from determines whether it is a sub class 
+            if (typeof(AuditRecord).IsAssignableFrom(updatedObject.GetType()) != true)
+            {
+                AuditRecordObjects ar = Container.NewTransientInstance<AuditRecordObjects>();
+                ar.UserName = byPrincipal.Identity.Name;
+                ar.ActionName = ("Persisted " + updatedObject.ToString());
+                ar.Object = updatedObject;
+                ar.Date = DateTime.Now;
+                Container.Persist(ref ar);
+            }
         }
 
         public void ObjectUpdated(IPrincipal byPrincipal, object updatedObject)
         {
-            
+            AuditRecordObjects ar = Container.NewTransientInstance<AuditRecordObjects>();
+            ar.UserName = byPrincipal.Identity.Name;
+            ar.ActionName = ("Updated " + updatedObject.ToString());
+            ar.Object = updatedObject;
+            ar.Date = DateTime.Now;
+            Container.Persist(ref ar);
         }
     }
 }
