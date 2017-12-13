@@ -65,6 +65,7 @@
     <Compile Include="AuditRecordObjects.cs" />
     <Compile Include="AuditRecordServices.cs" />
     <Compile Include="AuditService.cs" />
+    <Compile Include="AuditType.cs" />
     <Compile Include="Balance.cs" />
     <Compile Include="AccountingService.cs" />
     <Compile Include="BalanceSheet.cs" />

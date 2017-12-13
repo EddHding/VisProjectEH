@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NakedObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace Accounting.Model
 {
     public class AuditRecordObjects : AuditRecord
     {
+        [NakedObjectsIgnore]
         public virtual object Object { get; set; }
     }
 }

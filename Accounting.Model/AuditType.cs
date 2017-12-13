@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Accounting.Model
 {
-    public class AuditRecordServices : AuditRecord
-    {        
-        public virtual string ServiceName { get; set; }
+    public enum AuditType
+    {
+        Service_Action,
+        Object_Action,
+        Object_Persisted,
+        Object_Updated
     }
 }

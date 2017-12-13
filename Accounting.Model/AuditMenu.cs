@@ -17,5 +17,25 @@ namespace Accounting.Model
         {
             return Container.Instances<AuditRecord>();
         }
+
+        public IQueryable<AuditRecord> ListUpdatedObjects()
+        {
+            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.Object_Updated);
+        }
+
+        public IQueryable<AuditRecord> ListPersistedObjects()
+        {
+            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.Object_Persisted);
+        }
+
+        public IQueryable<AuditRecord> ListObjectActions()
+        {
+            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.Object_Action);
+        }
+
+        public IQueryable<AuditRecord> ListServiceActions()
+        {
+            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.Service_Action);
+        }
     }
 }

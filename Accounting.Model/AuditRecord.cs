@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Model
 {
-    public abstract class AuditRecord
+    public class AuditRecord
     {
         #region Injected Services
         public IDomainObjectContainer Container { set; protected get; }
@@ -16,7 +16,7 @@ namespace Accounting.Model
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }
 
-        public override string ToString()
+        public string Title()
         {
             var t = Container.NewTitleBuilder();
             t.Append(ActionName).Append(Date, "d", null);
@@ -28,6 +28,8 @@ namespace Accounting.Model
         public virtual string UserName { get; set; }
         
         public virtual DateTime Date { get; set; }
+        
+        public virtual AuditType Type { get; set; }
 
     }
 }
