@@ -40,6 +40,12 @@ namespace Accounting.Model
             return AllAccounts().Where(c => c.AccountName.ToUpper().Contains(name.ToUpper()));
         }
 
+        [NakedObjectsIgnore]
+        public Transaction FindTransactionByName(string name)
+        {
+            return Container.Instances<Transaction>().Where(c => c.Name.ToUpper().Contains(name.ToUpper())).First();
+        }
+
         public Transaction CreateNewTransaction()
         {
             Transaction obj = Container.NewTransientInstance<Transaction>();

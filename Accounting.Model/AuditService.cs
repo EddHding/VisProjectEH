@@ -14,6 +14,7 @@ namespace Accounting.Model
         #region Injected Services
         //An implementation of this interface is injected automatically by the framework
         public IDomainObjectContainer Container { set; protected get; }
+        public AccountingService AccountingService { set; protected get; }
         #endregion
         public void ActionInvoked(IPrincipal byPrincipal, string actionName, string serviceName, bool queryOnly, object[] withParameters)
         {
@@ -60,14 +61,28 @@ namespace Accounting.Model
 
         public void ObjectUpdated(IPrincipal byPrincipal, Object updatedObject)
         {
+            if (updatedObject.GetType().BaseType.Name.ToString() == "Transaction")
+            {
+                //or could use this for if -- typeof(Transaction).IsAssignableFrom(updatedObject.GetType())
+                AuditRecordTransaction ar = Container.NewTransientInstance<AuditRecordTransaction>();
+                ar.UserName = byPrincipal.Identity.Name;
+                ar.Transaction = AccountingService.FindTransactionByName(updatedObject.ToString()); ;
+                ar.ActionName = ("Updated " + ar.Transaction.Name);
+                ar.Date = DateTime.Now;
+                ar.Type = AuditType.Object_Updated;
+                Container.Persist(ref ar);
+            }
+            else
+            {
+                AuditRecordObjects ar = Container.NewTransientInstance<AuditRecordObjects>();
+                ar.UserName = byPrincipal.Identity.Name;
+                ar.Object = updatedObject.GetType().BaseType.Name;
+                ar.ActionName = ("Updated " + ar.Object.ToString());
+                ar.Date = DateTime.Now;
+                ar.Type = AuditType.Object_Updated;
+                Container.Persist(ref ar);
+            }
             
-            AuditRecordObjects ar = Container.NewTransientInstance<AuditRecordObjects>();
-            ar.UserName = byPrincipal.Identity.Name;
-            ar.Object = updatedObject.GetType().BaseType.Name;
-            ar.ActionName = ("Updated " + ar.Object.ToString());
-            ar.Date = DateTime.Now;
-            ar.Type = AuditType.Object_Updated;
-            Container.Persist(ref ar);
         }
     }
 }
