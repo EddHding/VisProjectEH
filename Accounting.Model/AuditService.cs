@@ -61,13 +61,15 @@ namespace Accounting.Model
 
         public void ObjectUpdated(IPrincipal byPrincipal, Object updatedObject)
         {
-            if (updatedObject.GetType().BaseType.Name.ToString() == "Transaction")
+            if (typeof(AuditRecord).IsAssignableFrom(updatedObject.GetType()))
             {
-                //or could use this for if -- typeof(Transaction).IsAssignableFrom(updatedObject.GetType())
+            }
+            else if (typeof(Transaction).IsAssignableFrom(updatedObject.GetType()))
+            {
                 AuditRecordTransaction ar = Container.NewTransientInstance<AuditRecordTransaction>();
                 ar.UserName = byPrincipal.Identity.Name;
-                ar.Transaction = AccountingService.FindTransactionByName(updatedObject.ToString()); ;
-                ar.ActionName = ("Updated " + ar.Transaction.Name);
+                ar.TransactionID = ((Transaction)updatedObject).Id; 
+                ar.ActionName = ("Updated " + ((Transaction)updatedObject).Name);
                 ar.Date = DateTime.Now;
                 ar.Type = AuditType.Object_Updated;
                 Container.Persist(ref ar);
