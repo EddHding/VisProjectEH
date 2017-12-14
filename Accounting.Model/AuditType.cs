@@ -8,9 +8,9 @@ namespace Accounting.Model
 {
     public enum AuditType
     {
-        Service_Action,
-        Object_Action,
-        Object_Persisted,
-        Object_Updated
+        ServiceAction,
+        ObjectAction,
+        ObjectPersisted,
+        ObjectUpdated
     }
 }

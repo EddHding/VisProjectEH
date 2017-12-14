@@ -25,7 +25,7 @@ namespace Accounting.Model
                 ar.ActionName = actionName;
                 ar.ServiceName = serviceName;
                 ar.Date = DateTime.Now;
-                ar.Type = AuditType.Service_Action;
+                ar.Type = AuditType.ServiceAction;
                 Container.Persist(ref ar);
             }                            
         }
@@ -39,7 +39,7 @@ namespace Accounting.Model
                 ar.ActionName = actionName;
                 ar.Object = onObject;
                 ar.Date = DateTime.Now;
-                ar.Type = AuditType.Object_Action;
+                ar.Type = AuditType.ObjectAction;
                 Container.Persist(ref ar);
             }
         }
@@ -54,7 +54,7 @@ namespace Accounting.Model
                 ar.ActionName = ("Persisted ");
                 ar.Object = updatedObject;
                 ar.Date = DateTime.Now;
-                ar.Type = AuditType.Object_Persisted;
+                ar.Type = AuditType.ObjectPersisted;
                 Container.Persist(ref ar);
             }
         }
@@ -69,9 +69,19 @@ namespace Accounting.Model
                 AuditRecordTransaction ar = Container.NewTransientInstance<AuditRecordTransaction>();
                 ar.UserName = byPrincipal.Identity.Name;
                 ar.TransactionID = ((Transaction)updatedObject).Id; 
-                ar.ActionName = ("Updated " + ((Transaction)updatedObject).Name);
+                ar.ActionName = ("Updated Transaction: " + ((Transaction)updatedObject).Name);
                 ar.Date = DateTime.Now;
-                ar.Type = AuditType.Object_Updated;
+                ar.Type = AuditType.ObjectUpdated;
+                Container.Persist(ref ar);
+            }
+            else if (typeof(Account).IsAssignableFrom(updatedObject.GetType()))
+            {
+                AuditRecordAccount ar = Container.NewTransientInstance<AuditRecordAccount>();
+                ar.UserName = byPrincipal.Identity.Name;
+                ar.AccountID = ((Account)updatedObject).Id;
+                ar.ActionName = ("Updated Account: " + ((Account)updatedObject).AccountName);
+                ar.Date = DateTime.Now;
+                ar.Type = AuditType.ObjectUpdated;
                 Container.Persist(ref ar);
             }
             else
@@ -79,9 +89,9 @@ namespace Accounting.Model
                 AuditRecordObjects ar = Container.NewTransientInstance<AuditRecordObjects>();
                 ar.UserName = byPrincipal.Identity.Name;
                 ar.Object = updatedObject.GetType().BaseType.Name;
-                ar.ActionName = ("Updated " + ar.Object.ToString());
+                ar.ActionName = ("Updated Object");
                 ar.Date = DateTime.Now;
-                ar.Type = AuditType.Object_Updated;
+                ar.Type = AuditType.ObjectUpdated;
                 Container.Persist(ref ar);
             }
             

@@ -36,5 +36,11 @@ namespace Accounting.Model
         {
             return AccountingService.FindAccountByName(matching);
         }
+
+        public IQueryable<AuditRecordTransaction> ShowHistory()
+        {
+            int thisId = this.Id;
+            return Container.Instances<AuditRecordTransaction>().Where(art => art.TransactionID == thisId);
+        }
     }
 }
