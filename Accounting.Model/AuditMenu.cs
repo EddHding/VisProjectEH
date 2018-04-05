@@ -20,22 +20,22 @@ namespace Accounting.Model
 
         public IQueryable<AuditRecord> ListUpdatedObjects()
         {
-            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.Object_Updated);
+            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.ObjectUpdated);
         }
 
         public IQueryable<AuditRecord> ListPersistedObjects()
         {
-            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.Object_Persisted);
+            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.ObjectPersisted);
         }
 
         public IQueryable<AuditRecord> ListObjectActions()
         {
-            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.Object_Action);
+            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.ObjectAction);
         }
 
         public IQueryable<AuditRecord> ListServiceActions()
         {
-            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.Service_Action);
+            return Container.Instances<AuditRecord>().Where(ar => ar.Type == AuditType.ServiceAction);
         }
     }
 }

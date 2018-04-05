@@ -54,10 +54,10 @@ namespace Accounting.Model
             return obj;
         }
 
-        public BalanceSheet CreateNewBalanceSheet()
+        public BalanceSheet CreateNewBalanceSheet(DateTime date)
         {
             BalanceSheet bs = Container.NewTransientInstance<BalanceSheet>();
-            bs.Date = DateTime.Today;
+            bs.Date = date;
             Container.Persist(ref bs);
             return bs;
         }
@@ -122,10 +122,6 @@ namespace Accounting.Model
 
         public void SetUp()
         {
-            //additional
-            //SalesAccount PLStock = AddNewSalesAccount("Stock", stk.balanceAtDate(new DateTime(2017, 7, 31)));
-            //SalesAccount PLPrice = AddNewSalesAccount("Sale Price", 0m);
-            //AddNewProfitLossStatement(new DateTime(2017, 7, 1), new DateTime(2017, 7, 31), PLStock, PLPrice);
             CreateProfitLossStatement(new DateTime(2017, 6, 30), new DateTime(2017, 8, 1));
         }
 

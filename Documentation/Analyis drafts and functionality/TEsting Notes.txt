@@ -1,0 +1,50 @@
+Testing:
+
+- proving that the system works, demonstrating the functionality.
+- use three test criteria; happy cases (working) and showing trapping of errors.
+- small number of comprehensive (stories) cases, 5 well done rather than 50 minor.
+- Tie back to the analysis.
+- do errors as side bar, e.g. "this is what wouldve happened if i did this instead"
+
+Stories:
+
+1) User Logs on and creates a balance sheet (todays date)
+   - Login to demonstrate Auth0, user has a google account.
+   - Click create balance sheet and enter date.
+   - Show the balance sheet.
+   - Robustness Test: Logging on with non Auth0 details
+
+2) User Creates a transaction (past) and views the balance sheet (from 1)
+   - Create a transaction, show both drag and drop and auto complete capabilites for filling out the record.
+   - save the transaction.
+   - View the previously created balance sheet to show that the balance sheets are legit, and to show why the View Model is useful.
+   - Robustness Test: Trying to create a transaction in the future, Trying to create a transaction which debit and credits the same account.
+
+3) User views the Audit List, then creates a new account and then views the Audit list again. 
+   - Just show the list of the audits.
+   - Create an account.
+   - This time show the list of audits, and show in depth look at the audit for the Account.
+   - Robustness Test: 
+
+4) User explores the auditing explorer to find the transaction they created.
+   - Have a look at the list provided by the different audit menues.
+   - Show a transaction audit and point out the user and how that links to Auth0
+   - Show The history on edited transactions.
+   - Robustness Test:
+
+5) User Adds some sales
+   -
+   -
+   -
+   - Robustness Test:
+
+6) User creates a profit and loss statement
+   -
+   -
+   -
+   - Robustness Test:
+
+
+
+Show some test in technical solution?
+SHow proof of conversations in Analysis?

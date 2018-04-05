@@ -1,0 +1,25 @@
+EASTER
+
+- Code Colour changes.
+- Write Up colour changes in technical solution.    
+- Code validation. DO BY THURSDAY 
+
+
+- Update Account screenshots in tech sol. and explain the validation.  
+- Do testing, show validation/error catching.  DO BY SUNDAY
+
+END OF WEEK 1
+
+- Revise Design, (do class diagrams), (remove bit about multiple menues, remove this from tech sol. as well)   DO BY MONDAY
+
+- Finish anything left over from tech sol.     DO BY TUESDAY 
+
+- Do evaluation.     DO BY THURSDAY
+
+- Revise analysis.   DO BY FRIDAY
+
+- Check / revise entire project. DO BY SATURDAY
+
+END OF WEEK 2
+
+- Grammar and spell check. DO BEFORE END OF HOLS

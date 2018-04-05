@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Accounting.Model.AuditRecordTransaction">
+    <Position X="1.25" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AuditRecordTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Accounting.Model.AuditRecordObjects">
+    <Position X="6.75" Y="3.5" Width="1.75" />
+    <InheritanceLine Type="Accounting.Model.AuditRecord" FixedFromPoint="true">
+      <Path>
+        <Point X="5.75" Y="4.25" />
+        <Point X="6.75" Y="4.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AuditRecordObjects.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Accounting.Model.AuditRecordAccount">
+    <Position X="1.25" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>AuditRecordAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Accounting.Model.AuditRecord">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAAAAAAEAAAAAAAAAAAAAAAAABAQAEAAAAAAA=</HashCode>
+      <FileName>AuditRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Accounting.Model.AuditRecordServices">
+    <Position X="6.5" Y="1.25" Width="1.75" />
+    <InheritanceLine Type="Accounting.Model.AuditRecord" FixedFromPoint="true">
+      <Path>
+        <Point X="5.75" Y="3.5" />
+        <Point X="6.125" Y="3.5" />
+        <Point X="6.125" Y="1.866" />
+        <Point X="6.5" Y="1.866" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>AuditRecordServices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

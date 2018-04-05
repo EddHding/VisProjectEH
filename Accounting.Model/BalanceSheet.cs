@@ -69,6 +69,7 @@ namespace Accounting.Model
         }
         #endregion
 
+        [Named ("Difference (should = 0)")]
         public virtual decimal Total
         {
             get

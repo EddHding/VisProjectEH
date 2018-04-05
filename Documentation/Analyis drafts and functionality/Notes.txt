@@ -1,0 +1,5 @@
+NOF9 manual searches for coding:
+
+Validate/ validation,  and range (for date ranges)
+
+Colour
