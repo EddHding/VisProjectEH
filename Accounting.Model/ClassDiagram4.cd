@@ -1,27 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Accounting.Model.Sale">
-    <Position X="5.25" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAQACAAAQEAAAAAAAAQAIAAAAAABAAAAAAAAAAA=</HashCode>
-      <FileName>Sale.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Accounting.Model.ProfitLossStatement">
-    <Position X="3.5" Y="1.25" Width="1.5" />
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <Members>
+      <Property Name="Container" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAACAAQAAAAAAAAIAAAQAAAgoAAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAACAAQAQACAAEAAAAAAAAAiIAAIAAAAAAAAAEAAAAA=</HashCode>
       <FileName>ProfitLossStatement.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SaleTransactions" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Accounting.Model.AbstractTransaction">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="Container" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACEQQAAAAAAEAAAAAAAASAICAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>abstractTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Accounting.Model.SaleTransaction">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAGAAACAAAAEQAAAAAAAAACAgAAAIAEgAAAAAA=</HashCode>
+      <FileName>SaleTransaction.cs</FileName>
+    </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Stock" />
+      <Property Name="DepositAccount" />
+      <Property Name="ProfitAccount" />
+      <Property Name="StockAccount" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Accounting.Model.ProfitLossField">
-    <Position X="1.25" Y="1.25" Width="1.5" />
+  <Class Name="Accounting.Model.Account">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <Members>
+      <Property Name="Container" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAgAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ProfitLossField.cs</FileName>
+      <HashCode>AAACAAQAAAAAAAAAAAAAAAAoIAEIABAAAAQQAIAAAAA=</HashCode>
+      <FileName>Account.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

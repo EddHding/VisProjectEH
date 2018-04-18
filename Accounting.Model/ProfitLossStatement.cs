@@ -1,6 +1,7 @@
 ﻿using NakedObjects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,13 @@ namespace Accounting.Model
         public IDomainObjectContainer Container { set; protected get; }
         #endregion
 
+        public string Title()
+        {
+            var t = Container.NewTitleBuilder();
+            t.Append(StartDate, "d", null).Append(" to ").Append(EndDate, "d", null);
+            return t.ToString();
+        }
+
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }
 
@@ -22,33 +30,40 @@ namespace Accounting.Model
         public virtual DateTime StartDate { get; set; }
 
         [MemberOrder(2)]
-        public virtual DateTime EndDate { get; set; } //date restrictions for the given month
+        public virtual DateTime EndDate { get; set; }
 
-        [MemberOrder(3)]
-        public virtual ProfitLossField Stock { get; set; }
+        public string ValidateEndDate(DateTime endDate)
+        {
+            var rb = new ReasonBuilder();
+            rb.AppendOnCondition(endDate > DateTime.Today, "Date can't be in the future!");
+            return rb.Reason;
+        }
 
-        [MemberOrder(4)]
-        public virtual ProfitLossField TotalSales { get; set; }
+        public string Validate(DateTime StartDate, DateTime EndDate)
+        {
+            var rb = new ReasonBuilder();
+            rb.AppendOnCondition(StartDate > EndDate, "Start Date must be before End Date!");
+            rb.AppendOnCondition(StartDate > DateTime.Today, "Date can't be in the future!");
+            return rb.Reason;
+        }
 
-
-
-
-        public virtual decimal GrossProfit
+        #region SaleTransactions (collection)
+        [NotPersisted, NotMapped, TableView(false, nameof(SaleTransaction.Name), nameof(SaleTransaction.Date), nameof(SaleTransaction.Amount), nameof(SaleTransaction.StockPrice), nameof(SaleTransaction.DepositAccount))]
+        public virtual ICollection<SaleTransaction> SaleTransactions
         {
             get
             {
-                var OGStock = Stock.Balance;
-                var StockChange = Stock.Balance;
-                var TSales = TotalSales.Balance;
-                var Sales = Container.Instances<Sale>().ToList();
-                foreach (var s in Sales)
-                {
-                    StockChange = Stock.Balance - s.ValueOfStocksSold;
-                    TSales = TotalSales.Balance + s.SalePrice;
-                }
-                StockChange = OGStock - StockChange;
-                var profit = TSales - StockChange;
-                return profit;
+                var ID = this.Id;
+                return Container.Instances<SaleTransaction>().Where(t => t.Date > StartDate && t.Date < EndDate).ToList();
+            }
+        }
+        #endregion
+
+        public virtual Decimal Profit
+        {
+            get
+            {
+                return SaleTransactions.Sum(s => s.profit);
             }
         }
 

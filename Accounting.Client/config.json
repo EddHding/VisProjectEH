@@ -6,7 +6,11 @@
   "appPath": "http://localhost:5000",
   "colors": {
     "typeMap": {
-      "Template.Model.Student": 1
+      "Accounting.Model.Account": 1,
+      "Accounting.Model.Transaction": 3,
+      "Accounting.Model.SaleTransaction": 4,
+      "Accounting.Model.BalanceSheet": 2,
+      "Accounting.Model.profitLossStatement": 5
     }
   },
   "masks": {

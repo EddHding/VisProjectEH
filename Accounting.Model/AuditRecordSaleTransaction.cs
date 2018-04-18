@@ -8,16 +8,15 @@ using System.Threading.Tasks;
 
 namespace Accounting.Model
 {
-    public class AuditRecordTransaction : AuditRecord
+    public class AuditRecordSaleTransaction:AuditRecord
     {
-
         [NakedObjectsIgnore]
-        public virtual int TransactionID { get; set; }
+        public virtual int SaleTransactionID { get; set; }
 
         [NotMapped]
-        public virtual Transaction Transaction
+        public virtual SaleTransaction SaleTransaction
         {
-            get { return Container.Instances<Transaction>().Single(t => t.Id == TransactionID); }
+            get { return Container.Instances<SaleTransaction>().Single(t => t.Id == SaleTransactionID); }
         }
     }
 }

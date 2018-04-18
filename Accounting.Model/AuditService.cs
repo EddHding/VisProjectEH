@@ -74,6 +74,16 @@ namespace Accounting.Model
                 ar.Type = AuditType.ObjectUpdated;
                 Container.Persist(ref ar);
             }
+            else if (typeof(SaleTransaction).IsAssignableFrom(updatedObject.GetType()))
+            {
+                AuditRecordSaleTransaction ar = Container.NewTransientInstance<AuditRecordSaleTransaction>();
+                ar.UserName = byPrincipal.Identity.Name;
+                ar.SaleTransactionID = ((SaleTransaction)updatedObject).Id;
+                ar.ActionName = ("Updated Transaction: " + ((SaleTransaction)updatedObject).Name);
+                ar.Date = DateTime.Now;
+                ar.Type = AuditType.ObjectUpdated;
+                Container.Persist(ref ar);
+            }
             else if (typeof(Account).IsAssignableFrom(updatedObject.GetType()))
             {
                 AuditRecordAccount ar = Container.NewTransientInstance<AuditRecordAccount>();

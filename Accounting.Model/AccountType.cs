@@ -11,7 +11,6 @@ namespace Accounting.Model
         Capital,
         Asset,
         Liability,
-        Total,
-        ProfitAndLoss
+        Total
     }
 }

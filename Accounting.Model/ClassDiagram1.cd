@@ -1,28 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Accounting.Model.Account">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="1.25" Width="1.5" />
+    <Members>
+      <Property Name="Container" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
+    <AssociationLine Name="SaleTransactions" Type="Accounting.Model.SaleTransaction" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.594" Y="2.997" />
+        <Point X="7.594" Y="3.372" />
+        <Point X="6.062" Y="3.372" />
+        <Point X="6.062" Y="4" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACAAQAAAAAAAAAAAAAAAAoAAEAABAAAAQQAIAAAAA=</HashCode>
+      <HashCode>AAACAAQAAAAAAAAAAAAAAAAoIAEIABAAAAQQAIAAAAA=</HashCode>
       <FileName>Account.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AccountingService" />
+      <Property Name="TypeOfAccount" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="CreditTransactions" />
+      <Property Name="DebitTransactions" />
+      <Property Name="SaleTransactions" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Accounting.Model.AccountingService">
-    <Position X="5.75" Y="3.25" Width="1.5" />
+    <Position X="11" Y="2" Width="1.5" />
+    <Members>
+      <Property Name="Container" Hidden="true" />
+    </Members>
     <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>IAACAAYAAABAAAgAAAARAgQAAhAEAQAAIAAAEEAAAAA=</HashCode>
+      <HashCode>IAAKAAYAAABAACAAAAARAAAAAhAIAAAABAAAEAAAAAA=</HashCode>
       <FileName>AccountingService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Accounting.Model.Balance">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="4" Width="1.5" />
+    <Members>
+      <Property Name="Container" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -30,67 +55,108 @@
       <HashCode>AAACAAQAAAAAAAAAAAAIAACAAgAAAAAAAAQAAIAAAAA=</HashCode>
       <FileName>Balance.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TypeOfAccount" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Accounting.Model.BalanceSheet">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="2.25" Y="1.25" Width="1.5" />
+    <Members>
+      <Property Name="Container" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
+    <AssociationLine Name="AccountingService" Type="Accounting.Model.AccountingService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="1.25" />
+        <Point X="3" Y="0.75" />
+        <Point X="8.167" Y="0.75" Type="JumpStart" />
+        <Point X="8.333" Y="0.75" Type="JumpEnd" />
+        <Point X="11.688" Y="0.75" />
+        <Point X="11.688" Y="2" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAACDAQAAAAAAEAAAAAAAIAAIAAAQAABAAAAAAAAAAA=</HashCode>
       <FileName>BalanceSheet.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AccountingService" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="AccountBalances" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Accounting.Model.Transaction">
-    <Position X="9.5" Y="3.5" Width="1.5" />
+    <Position X="4.25" Y="1" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAIAAAAAAAAgE=</HashCode>
+      <HashCode>AAAAAAAAAAAJAAAEAAAAAAEAAAAAAAAAIAAAAAAAAgE=</HashCode>
       <FileName>Transaction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Accounting.Model.AbstractTransaction">
-    <Position X="8" Y="0.5" Width="1.5" />
+    <Position X="3.25" Y="4.25" Width="1.5" />
+    <Members>
+      <Property Name="Container" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
+    <AssociationLine Name="AccountingService" Type="Accounting.Model.AccountingService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.938" Y="6.19" />
+        <Point X="3.938" Y="6.896" />
+        <Point X="11.562" Y="6.896" />
+        <Point X="11.562" Y="5.411" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACAAQAAAAJAAAAAAAAAAGAIAAAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACEQQAAAAAAEAAAAAAAASAICAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>abstractTransaction.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AccountingService" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="Accounting.Model.Sale">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+  <Class Name="Accounting.Model.ProfitLossStatement">
+    <Position X="8" Y="4.25" Width="1.5" />
+    <Members>
+      <Property Name="Container" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAACAAQACAAAQEAAAAAAAAQAIAAAAAABAAAAAAAAAAA=</HashCode>
-      <FileName>Sale.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Accounting.Model.ProfitLossField">
-    <Position X="0.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAgAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ProfitLossField.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Accounting.Model.ProfitLossStatement">
-    <Position X="2.25" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAQAAAAAAAAIAAAQAAAgoAAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAACAAQAQACAAEAAAAAAAAAiIAAIAAAAAAAAAEAAAAA=</HashCode>
       <FileName>ProfitLossStatement.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AccountingService" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="SaleTransactions" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Accounting.Model.SaleTransaction">
+    <Position X="5.25" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAGAAACAAAAEQAAAAAAAAACAgAAAIAEgAAAAAA=</HashCode>
+      <FileName>SaleTransaction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Accounting.Model.AccountType">
-    <Position X="4" Y="3.25" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAGAAAAAAAAAQAgAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAQAgAAAAgAAAAAAA=</HashCode>
       <FileName>AccountType.cs</FileName>
     </TypeIdentifier>
   </Enum>

@@ -14,8 +14,6 @@ namespace Accounting.Model
         //An implementation of this interface is injected automatically by the framework
         public IDomainObjectContainer Container { set; protected get; }
         #endregion
-        ProfitLossField PLStock;
-        ProfitLossField PLPrice;
 
         public IQueryable<Account> AllAccounts()
         {
@@ -24,9 +22,14 @@ namespace Accounting.Model
             return Container.Instances<Account>().OrderBy(t => t.TypeOfAccount);
         }
 
-        public IQueryable<AbstractTransaction> AllTransactions()
+        public IQueryable<Transaction> AllTransactions()
         {
-            return Container.Instances<AbstractTransaction>().OrderByDescending(t => t.Date);
+            return Container.Instances<Transaction>().OrderByDescending(t => t.Date);
+        }
+
+        public IQueryable<SaleTransaction> AllSaleTransactions()
+        {
+            return Container.Instances<SaleTransaction>().OrderByDescending(t => t.Date);
         }
 
         public IQueryable<BalanceSheet> AllBalanceSheets()
@@ -54,6 +57,18 @@ namespace Accounting.Model
             return obj;
         }
 
+        public SaleTransaction CreateNewSaleTransaction()
+        {
+            SaleTransaction obj = Container.NewTransientInstance<SaleTransaction>();
+            return obj;
+        }
+
+        public Account CreateNewAccount()
+        {
+            Account ac = Container.NewTransientInstance<Account>();
+            return ac;
+        }
+
         public BalanceSheet CreateNewBalanceSheet(DateTime date)
         {
             BalanceSheet bs = Container.NewTransientInstance<BalanceSheet>();
@@ -77,54 +92,13 @@ namespace Accounting.Model
             return Container.Instances<ProfitLossStatement>().OrderByDescending(t => t.EndDate);
         }
 
-        public IQueryable<Sale> AllSales()
-        {
-            return Container.Instances<Sale>().OrderByDescending(t => t.Date);
-        }
-
-        public Sale CreateNewSale()
-        {
-            Sale obj = Container.NewTransientInstance<Sale>();
-            //set up any parameters
-            //Container.Persist(ref obj);
-            return obj;
-        }
-
         public ProfitLossStatement CreateProfitLossStatement(DateTime startdate, DateTime enddate)
         {
             ProfitLossStatement pls = Container.NewTransientInstance<ProfitLossStatement>();
             pls.StartDate = startdate;
             pls.EndDate = enddate;
-            Account Stock = FindAccountByName("Stock").First();
-            PLStock = CreateProfitLossField("Stock", Stock.balanceAtDate(enddate));
-            pls.Stock = PLStock;
-            PLPrice = CreateProfitLossField("Sale Price", 0m);
-            pls.TotalSales = PLPrice;
-            Container.Persist(ref pls);
             return pls;
         }
-
-        [NakedObjectsIgnore]
-        public IQueryable<ProfitLossField> FindProfitLossFieldByName(string name)
-        {
-            //Filters students to find a match
-            return Container.Instances<ProfitLossField>().Where(c => c.Name.ToUpper().Contains(name.ToUpper()));
-        }
-
-        [NakedObjectsIgnore]
-        public ProfitLossField CreateProfitLossField(string name, decimal balance)
-        {
-            ProfitLossField obj = Container.NewTransientInstance<ProfitLossField>();
-            obj.Name = name;
-            obj.Balance = balance;
-            return obj;
-        }
-
-        public void SetUp()
-        {
-            CreateProfitLossStatement(new DateTime(2017, 6, 30), new DateTime(2017, 8, 1));
-        }
-
     }
 
 }

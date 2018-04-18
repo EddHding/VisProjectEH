@@ -10,16 +10,6 @@ namespace Accounting.Model
 {
     public class Transaction : AbstractTransaction
     {
-        public string Title()
-        {
-            var t = Container.NewTitleBuilder();
-            t.Append(Name).Append(Date, "d", null);
-            return t.ToString();
-        }
-
-        [MemberOrder(1)]
-        public virtual string Name { get; set; }
-
         [NakedObjectsIgnore]
         public virtual int? DebitAccountId { get; set; }
 
@@ -28,6 +18,18 @@ namespace Accounting.Model
 
         [PageSize(10)]
         public IQueryable<Account> AutoCompleteDebitAccount([MinLength(2)] string matching)
+        {
+            return AccountingService.FindAccountByName(matching);
+        }
+
+        [NakedObjectsIgnore]
+        public virtual int? CreditAccountId { get; set; }
+
+        [MemberOrder(5)]
+        public virtual Account CreditAccount { get; set; }
+
+        [PageSize(10)]
+        public IQueryable<Account> AutoCompleteCreditAccount([MinLength(2)] string matching)
         {
             return AccountingService.FindAccountByName(matching);
         }

@@ -64,6 +64,7 @@
     <Compile Include="AuditRecord.cs" />
     <Compile Include="AuditRecordAccount.cs" />
     <Compile Include="AuditRecordObjects.cs" />
+    <Compile Include="AuditRecordSaleTransaction.cs" />
     <Compile Include="AuditRecordServices.cs" />
     <Compile Include="AuditService.cs" />
     <Compile Include="AuditType.cs" />
@@ -71,10 +72,9 @@
     <Compile Include="AccountingService.cs" />
     <Compile Include="BalanceSheet.cs" />
     <Compile Include="AuditRecordTransaction.cs" />
-    <Compile Include="ProfitLossField.cs" />
     <Compile Include="ProfitLossStatement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sale.cs" />
+    <Compile Include="SaleTransaction.cs" />
     <Compile Include="Transaction.cs" />
   </ItemGroup>
   <ItemGroup>

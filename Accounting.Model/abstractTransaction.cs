@@ -17,24 +17,38 @@ namespace Accounting.Model
         public IDomainObjectContainer Container { set; protected get; }
         #endregion
 
+        public string Title()
+        {
+            var t = Container.NewTitleBuilder();
+            t.Append(Name).Append(Date, "d", null);
+            return t.ToString();
+        }
+
         [NakedObjectsIgnore]
         public virtual int Id { get; set; }
-        
+
+        [MemberOrder(1)]
+        public virtual string Name { get; set; }
+
         [MemberOrder(2)]
         public virtual DateTime Date { get; set; }
+
+        public string ValidateDate(DateTime date)
+        {
+            var rb = new ReasonBuilder();
+            rb.AppendOnCondition(date > DateTime.Today, "Date can't be in the future!");
+            return rb.Reason;
+        }
+
 
         [MemberOrder(3)]
         public virtual Decimal Amount { get; set; }
 
-        [NakedObjectsIgnore]
-        public virtual int? CreditAccountId { get; set; }
-
-        [MemberOrder(5)]
-        public virtual Account CreditAccount { get; set; }
-        [PageSize(10)]
-        public IQueryable<Account> AutoCompleteCreditAccount([MinLength(2)] string matching)
+        public string ValidateAmount(Decimal amount)
         {
-            return AccountingService.FindAccountByName(matching);
+            var rb = new ReasonBuilder();
+            rb.AppendOnCondition(amount < 1, "Amount must be greater than 0!");
+            return rb.Reason;
         }
 
         public IQueryable<AuditRecordTransaction> ShowHistory()

@@ -28,19 +28,6 @@ namespace Accounting.DataBase
             //CreateFixture2(context); //Original data
         }
 
-        private void AddNewSale(DateTime date, decimal stockprice, decimal saleprice, string name)
-        {
-            var sale = new Sale {Date = date, ValueOfStocksSold = stockprice, SalePrice = saleprice, Name = name };
-            Context.Sales.Add(sale);
-        }
-
-        private ProfitLossField AddNewSalesAccount(string name, decimal balance)
-        {
-            var sac = new ProfitLossField {Name = name, Balance = balance };
-            Context.SalesAccounts.Add(sac);
-            return sac;
-        }
-
         private void AddNewProfitLossStatement(DateTime startdate, DateTime enddate)
         {
             var pls = new ProfitLossStatement {StartDate = startdate, EndDate = enddate};
@@ -65,6 +52,13 @@ namespace Accounting.DataBase
             var tr = new Transaction() { Name = name, DebitAccount = dAccount, CreditAccount = cAccount, Date = date, Amount = amount};
             Context.Transactions.Add(tr);
             return tr;
+        }
+
+        private SaleTransaction AddNewSaleTransaction(string name, Account dAccount, DateTime date, decimal amount, decimal stockprice)
+        {
+            var str = new SaleTransaction() { Name = name, DepositAccount = dAccount, ProfitAccount = pft, StockAccount = stk,  Date = date, Amount = amount, StockPrice = stockprice };
+            Context.SaleTransactions.Add(str);
+            return str;
         }
 
         private void CreateFixture1(AccountingDbContext context)
@@ -170,8 +164,10 @@ namespace Accounting.DataBase
             Context.SaveChanges();
             AddNewBalanceSheet(new DateTime(2017, 6, 30));
             AddNewBalanceSheet(new DateTime(2017, 8, 1));
-            AddNewSale(new DateTime(2017, 7, 26), 100, 250, "Sale to Borris");
-            //AddNewProfitLossStatement(new DateTime(2017, 6, 30), new DateTime(2017, 8, 1));
+            //below is not from the book exercise
+            AddNewSaleTransaction("Sale 1", bnk, new DateTime(2017, 7, 9), 100m, 18m);
+            AddNewSaleTransaction("Sale 2", csh, new DateTime(2017, 7, 23), 33m, 4m);
+            AddNewProfitLossStatement(new DateTime(2017, 6, 30), new DateTime(2017, 8, 1));
             Context.SaveChanges();
         }
         private void CreateStandardAccounts(AccountingDbContext context)
